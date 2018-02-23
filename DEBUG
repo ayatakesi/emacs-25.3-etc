@@ -172,44 +172,24 @@ MS-WindowsではGDB配下でEmacsを実行する前にnew-consoleオプション
 
 ** Examining Lisp object values.
 
-When you have a live process to debug, and it has not encountered a fatal
-error, you can use the GDB command 'pr'.  First print the value in the
-ordinary way, with the 'p' command.  Then type 'pr' with no arguments.  This
-calls a subroutine which uses the Lisp printer.
+デバッグの生きたプロセスがあり、致命的なエラーに遭遇戦していなければ、GDBコマンド'pr'を使用できます。最初は通常の方法、'p'コマンドで値をプリントしてください。それから引数なしで'pr'とタイプします。これはLispプリンターを使用するサブルーチンを呼び出します。
 
-You can also use 'pp value' to print the emacs value directly.
+emacsの値を直接プリントするために、'pp value'を使用することもできます。
 
-To see the current value of a Lisp Variable, use 'pv variable'.
+Lisp変数のカレント値を確認するためには、'pv value'を使用します。
 
-These commands send their output to stderr; if that is closed or redirected
-to some file you don't know, you won't see their output.  This is
-particularly so for Emacs invoked on MS-Windows from the desktop shortcut.
-On GNU/Linux, you can use the command 'redirect-debugging-output' to
-redirect stderr to a file.
+これらのコマンドは出力をstderrに送ります。stderrがcloseされていたり、あなたには不明な何らかのファイルにリダイレクトされている場合、これらの出力を確認することはできないでしょう。これは特にMS-Windows上でデスクトップショートカットからEmacsが呼び出された場合が該当します。GNU/Linuxではコマンド'redirect-debugging-output'を使用して、stderrをファイルにリダイレクトできます。
 
-Note: It is not a good idea to try 'pr', 'pp', or 'pv' if you know that
-Emacs is in deep trouble: its stack smashed (e.g., if it encountered SIGSEGV
-due to stack overflow), or crucial data structures, such as 'obarray',
-corrupted, etc.  In such cases, the Emacs subroutine called by 'pr' might
-make more damage, like overwrite some data that is important for debugging
-the original problem.
+注意:
+Emacsが深刻なトラブルの渦中、スタックが破壊(たとえばスタックオーバーフローによるSIGSEGVなど)されていたり、'obarray'のようなデータ構造の循環参照や不正構造があると解っている状況で'pr'、'pp'、'pv'を試みるのは、良いアイデアではありません。このような場合、'pr'により呼び出されるEmacsサブルーチンは、元の問題をデバッグするために重要な何らかのデータを上書きしてしまう等、より多くのダメージを与えてしまうかもしれません。
 
-Also, on some systems it is impossible to use 'pr' if you stopped Emacs
-while it was inside 'select'.  This is in fact what happens if you stop
-Emacs while it is waiting.  In such a situation, don't try to use 'pr'.
-Instead, use 's' to step out of the system call.  Then Emacs will be between
-instructions and capable of handling 'pr'.
+さらに'select'の内部にいる間にEmacsをストップした場合は、'pr'の使用が不可能なシステムもいくつかあります。Emacsがwaitしている間にEmacsをストップすると、これは実際に発生します。このような状況では、'pr'の使用を試みてはなりません。かわりにシステムコールをステップアウトするために、's'を使用してください。その後、Emacsは命令文の間に、'pr'を処理することができるようになるでしょう。
 
-If you can't use 'pr' command, for whatever reason, you can use the 'xpr'
-command to print out the data type and value of the last data value, For
-example:
+理由が何であれ、'pr'コマンドが使用できない場合は、直前のデータ値のデータ型と値をプリントする'xpr'コマンドを使用できます。
 
     p it->object xpr
 
-You may also analyze data values using lower-level commands.  Use the
-'xtype' command to print out the data type of the last data value.  Once you
-know the data type, use the command that corresponds to that type.  Here are
-these commands:
+低レベルコマンドを使用して、データ値を分析するかもしれません。直前のデータ値のデータ型のプリントには、'xtype'コマンドを使用します。一度データ型が解れば、その型に対応するコマンドを使用できます。以下はそれらのコマンドです:
 
     xint xptr xwindow xmarker xoverlay xmiscfree xintfwd xboolfwd xobjfwd
 xbufobjfwd xkbobjfwd xbuflocal xbuffer xsymbol xstring xvector xframe
@@ -217,71 +197,56 @@ xwinconfig xcompiled xcons xcar xcdr xsubr xprocess xfloat xscrollbar
 xchartable xsubchartable xboolvector xhashtable xlist xcoding xcharset
 xfontset xfont xbytecode
 
-Each one of them applies to a certain type or class of types.  (Some of
-these types are not visible in Lisp, because they exist only internally.)
+これらの1つ1つは、特定の型やクラス型を受け入れます(これらの型のいくつかは内部的にのみ存在する型なので、Lispでは不可視です)。
 
-Each x... command prints some information about the value, and produces a
-GDB value (subsequently available in $) through which you can get at the
-rest of the contents.
+それぞれのx...コマンドは、その内容の残りから得られるものを通じて、値についてのいくつかの情報と、GDB値(続けて$により利用可能)をプリントします。
 
-In general, most of the rest of the contents will be additional Lisp objects
-which you can examine in turn with the x... commands.
+一般的に内容の残りのほとんどはx...コマンドで順に検証していくことができる、追加のLispオブジェクトでしょう。
 
-Even with a live process, these x...  commands are useful for examining the
-fields in a buffer, window, process, frame or marker.  Here's an example
-using concepts explained in the node "Value History" of the GDB manual to
-print values associated with the variable called frame.  First, use these
-commands:
+生きたプロセスにおいても、これらのx...コマンドはバッファー、ウィンドウ、プロセス、マーカー内の検証に役立ちます。以下はフレームと呼ばれる変数に関連する値をプリントするために、GDBマニュアル"Value
+History"ノードで説明されている概念を使用する例です:
 
   cd src gdb emacs b set_frame_buffer_list r -q
 
-Then Emacs hits the breakpoint:
+その後、Emacsはブレークポイントに達します:
 
   (gdb) p frame $1 = 139854428 (gdb) xpr Lisp_Vectorlike PVEC_FRAME $2 =
 (struct frame *) 0x8560258 "emacs@localhost" (gdb) p *$ $3 = { size =
 1073742931, next = 0x85dfe58, name = 140615219, [...] }
 
-Now we can use 'pp' to print the frame parameters:
+これで'pp'を使用してフレームパラメーターをプリントできます:
 
   (gdb) pp $->param_alist ((background-mode . light) (display-type . color)
 [...])
 
-The Emacs C code heavily uses macros defined in lisp.h.  So suppose we want
-the address of the l-value expression near the bottom of 'add_command_key'
-from keyboard.c:
+EmacsのCコードは、lisp.h内で定義されたマクロを多用します。keyboard.cの'add_command_key'の最後の方にある左辺値式(l-value
+expression)のアドレスが知りたいとします:
 
   XVECTOR (this_command_keys)->contents[this_command_key_count++] = key;
 
-XVECTOR is a macro, so GDB only knows about it if Emacs has been compiled
-with preprocessor macro information.  GCC provides this if you specify the
-options '-gdwarf-N' (where N is 2 or higher) and '-g3'.  In this case, GDB
-can evaluate expressions like "p XVECTOR (this_command_keys)".
+XVECTORはマクロなので、Emacsがプリプロセッサーマクロ情報とともにコンパイルされた場合だけそれを知ることができます。オプション'-gdwarf-N'(Nは2以上)と'-g3'を指定した場合、GCCはこの情報を提供します。この場合、GDBは"p
+XVECTOR (this_command_keys)"のような式を評価できます。
 
-When this information isn't available, you can use the xvector command in
-GDB to get the same result.  Here is how:
+この情報が利用できない場合は、同じ結果を得るためにGDB内でxvectorコマンドを使用できます。以下は使用方法です:
 
   (gdb) p this_command_keys $1 = 1078005760 (gdb) xvector $2 = (struct
 Lisp_Vector *) 0x411000 0 (gdb) p $->contents[this_command_key_count] $3 =
 1077872640 (gdb) p &$ $4 = (int *) 0x411008
 
-Here's a related example of macros and the GDB 'define' command.  There are
-many Lisp vectors such as 'recent_keys', which contains the last 300
-keystrokes.  We can print this Lisp vector
+以下はマクロとGDBの'define'コマンドに関する例です。'recent_keys'(最後のキーストローク300個を含む)のようなLispベクターが多数存在します。このLispベクターを以下のようにしてプリントできます
 
   p recent_keys pr
 
-But this may be inconvenient, since 'recent_keys' is much more verbose than
-'C-h l'.  We might want to print only the last 10 elements of this vector.
-'recent_keys' is updated in keyboard.c by the command
+'recent_keys'は'C-h
+l'に比べて出力が多く、これは不便かもしれません。わたしたちなら、このベクターの最後の10要素だけをプリントしたいと望むでしょう。'recent_keys'はkeyboard.c内でコマンドにより更新されます
 
   XVECTOR (recent_keys)->contents[recent_keys_index] = c;
 
-So we define a GDB command 'xvector-elts', so the last 10 keystrokes are
-printed by
+わたしたちはGDBコマンド'xvector-elts'を定義して、以下のように最後のキーストローク10個をプリントします
 
   xvector-elts recent_keys recent_keys_index 10
 
-where you can define xvector-elts as follows:
+ここでxvector-eltsは以下のように定義します:
 
   define xvector-elts set $i = 0 p $arg0 xvector set $foo = $ while $i < $arg2
 p $foo->contents[$arg1-($i++)] pr end document xvector-elts Prints a range
@@ -290,87 +255,59 @@ vector 'v' ending at the index 'n'.  end
 
 ** Getting Lisp-level backtrace information within GDB
 
-The most convenient way is to use the 'xbacktrace' command.  This shows the
-names of the Lisp functions that are currently active.
+'xbacktrace'コマンドを使用するのがもっとも便利な方法です。これはカレントでアクティブなLisp関数の名前を表示します。
 
-If that doesn't work (e.g., because the 'backtrace_list' structure is
-corrupted), type "bt" at the GDB prompt, to produce the C-level backtrace,
-and look for stack frames that call Ffuncall.  Select them one by one in
-GDB, by typing "up N", where N is the appropriate number of frames to go up,
-and in each frame that calls Ffuncall type this:
+もしこれが機能しない(たとえば'backtrace_list'構造が不正等により)場合は、Cレベルのバックトレースを生成するために、GDBプロンプトで"bt"とタイプして、Ffuncallを呼び出しているスタックフレームを探してください。"up
+N"とタイプして、それらのスタックフレームをGDBで1つずつ選択していきます。ここでNは上位フレームに移動するための適切な数字です。そしてFfuncallを呼び出しているフレームごとに以下をタイプします:
 
    p *args pr
 
-This will print the name of the Lisp function called by that level of
-function calling.
+これにより、そのレベルの関数呼び出しにより呼び出されているLisp関数の名前がプリントされます。
 
-By printing the remaining elements of args, you can see the argument
-values.  Here's how to print the first argument:
+argsの残りの要素をプリントすることにより、Lisp関数の引数の値を確認できます。以下は最初の引数をプリントする方法です:
 
    p args[1] pr
 
-If you do not have a live process, you can use xtype and the other x...
-commands such as xsymbol to get such information, albeit less conveniently.
-For example:
+生きたプロセスがない場合は、xtypeと他のx...コマンドを使用できます。便利さは劣りますが、このような情報はxsymbolのようなコマンドで取得します。たとえば、
 
    p *args xtype
 
-and, assuming that "xtype" says that args[0] is a symbol:
+"xtype"が、args[0]をsymbolだと告げた場合は:
 
    xsymbol
 
 ** Debugging Emacs redisplay problems
 
-If you configured Emacs with --enable-checking='glyphs', you can use
-redisplay tracing facilities from a running Emacs session.
+--enable-checking='glyphs'でEmacsをconfigureした場合は、実行中のEmacsセッションから再表示(redisplay)トレース機能を使用できます。
 
-The command "M-x trace-redisplay RET" will produce a trace of what redisplay
-does on the standard error stream.  This is very useful for understanding
-the code paths taken by the display engine under various conditions,
-especially if some redisplay optimizations produce wrong results.  (You know
-that redisplay optimizations might be involved if "M-x redraw-display RET",
-or even just typing "M-x", causes Emacs to correct the bad display.)  Since
-the cursor blinking feature triggers periodic redisplay cycles, we recommend
-disabling 'blink-cursor-mode' before invoking 'trace-redisplay', so that you
-have less clutter in the trace.  You can also have up to 30 last trace
-messages dumped to standard error by invoking the 'dump-redisplay-history'
-command.
+コマンド"M-x trace-redisplay
+RET"は再表示が行うことのトレースを標準エラーストリームに生成します。さまざまな状況下でディスプレイエンジンにより選択されるコードパス(code
+path:実際に実行されるコードの道筋)を理解するために、特にある再表示最適化が誤った結果を生成する場合に、非常に役に立ちます(承知のとおり、"M-x
+redraw-display
+RET"、あるいは"M-x"とタイプするだけでも、Emacsが誤った表示を修正するために再表示最適化がよびだされます)。カーソル点滅機能(cursor
+blinking
+feature)は定期的な再表示サイクルをトリガーするので、余計なものをトレースから減らすために、'trace-redisplay'を呼び出す前に'blink-cursor-mode'を無効にすることを推奨します。dump-redisplay-history'コマンドを呼び出して、最後のトレースメッセージを30個まで標準エラーにダンプすることもできます。
 
-To find the code paths which were taken by the display engine, search
-xdisp.c for the trace messages you see.
+ディスプレイエンジンが選択するコードパスを見つけるには、トレースメッセージからxdisp.cを探します。
 
-The command 'dump-glyph-matrix' is useful for producing on standard error
-stream a full dump of the selected window's glyph matrix.  See the
-function's doc string for more details.  If you are debugging redisplay
-issues in text-mode frames, you may find the command
-'dump-frame-glyph-matrix' useful.
+コマンド'dump-glyph-matrix'は、選択されたウィンドウのグリフマトリクス(glyph
+matrix)の完全なダンプを標準エラーストリームに生成するのに役立ちます。詳細は関数のドキュメント文字列を参照してください。text-modeフレームで再表示に関する問題をデバッグしている場合は、コマンド'dump-frame-glyph-matrix'が便利なことに気づくかもしれません。
 
-Other commands useful for debugging redisplay are 'dump-glyph-row' and
-'dump-tool-bar-row'.
+再表示をデバッグするとき有用な他のコマンドには、'dump-glyph-row'と'dump-tool-bar-row'があります。
 
-If you run Emacs under GDB, you can print the contents of any glyph matrix
-by just calling that function with the matrix as its argument.  For example,
-the following command will print the contents of the current matrix of the
-window whose pointer is in 'w':
+GDB配下でEmacsを実行している場合は、マトリクスを引数にその関数を呼び出すだけで、任意のグリフマトリクスの内容をプリントできます。たとえば、以下のコマンドは、ウィンドウ(ポインター'w')のカレントマトリクスの内容をプリントします:
 
   (gdb) p dump_glyph_matrix (w->current_matrix, 2)
 
-(The second argument 2 tells dump_glyph_matrix to print the glyphs in a long
-form.)
+(2つ目の引数2はdump_glyph_matrixにグリフを長い形式プリントするよう指定します。)
 
-The Emacs display code includes special debugging code, but it is normally
-disabled.  Configuring Emacs with --enable-checking='yes,glyphs' enables it.
+ディスプレイ関係のEmacsのコードには特別なデバッグ用コードが含まれていますが、通常は無効になっています。--enable-checking='yes,glyphs'でEmacsをconfigureすることにより、これが有効になります。
 
-Building Emacs like that activates many assertions which scrutinize display
-code operation more than Emacs does normally.  (To see the code which tests
-these assertions, look for calls to the 'eassert' macros.)  Any assertion
-that is reported to fail should be investigated.
+このようにEmacsをビルドすると、ディスプレイコード処理を検査する多くのassertionが、通常Emacsが行うより多く活性化されます(これらのassertionが何をテストしているかは、'eassert'マクロ呼び出しを確認してください)。失敗を報告するassertionは精査するべきです。
 
-When you debug display problems running emacs under X, you can use the 'ff'
-command to flush all pending display updates to the screen.
+X配下で実行中のEmacsにたいしてディスプレイの問題をデバッグするときは、'ff'コマンドを使用して、待機中のすべての画面表示の更新をflushできます。
 
-The src/.gdbinit file defines many useful commands for dumping redisplay
-related data structures in a terse and user-friendly format:
+src/.gdbinitファイルでは、再表示関連のデータ構造を簡潔でユーザーフレンドリーなフォーマットでダンプするためのコマンドが多数定義されています:
 
  'ppt' prints value of PT, narrowing, and gap in current buffer.  'pit' dumps
 the current display iterator 'it'.  'pwin' dumps the current window 'win'.
@@ -378,14 +315,10 @@ the current display iterator 'it'.  'pwin' dumps the current window 'win'.
 'glyph'.  'pgi' dumps the next glyph.  'pgrow' dumps all glyphs in current
 glyph_row 'row'.  'pcursor' dumps current output_cursor.
 
-The above commands also exist in a version with an 'x' suffix which takes an
-object of the relevant type as argument.  For example, 'pgrowx' dumps all
-glyphs in its argument, which must be of type 'struct glyph_row'.
+上記のコマンドには関連する型のオブジェクトを引数とする、サフィックス'x'のついたバージョンも存在します。たとえば、'pgrowx'は引数内のすべてのグリフをダンプします。引数の型は'struct
+glyph_row'でなければなりません。
 
-Since redisplay is performed by Emacs very frequently, you need to place
-your breakpoints cleverly to avoid hitting them all the time, when the issue
-you are debugging did not (yet) happen.  Here are some useful techniques for
-that:
+再表示はEmacsにより非常に頻繁に行われるので、デバッグ中の問題が(まだ)発生していないのに、再表示のたびに毎回ブレークしてしまうのを避けるため、ブレークポイントを巧妙に配す必要があります。これに関する有用なテクニックを以下に挙げます:
 
  . Put a breakpoint at 'Fredraw_display' before running Emacs.  Then do
 whatever is required to reproduce the bad display, and invoke "M-x
@@ -429,16 +362,12 @@ dispextern.h for the full list of values.
 
 ** Following longjmp call.
 
-Recent versions of glibc (2.4+?) encrypt stored values for setjmp/longjmp
-which prevents GDB from being able to follow a longjmp call using 'next'.
-To disable this protection you need to set the environment variable
-LD_POINTER_GUARD to 0.
+最新バージョンのglibc(2.4+?)は、GDBの'next'使用によるlongjmp呼び出しの追跡を防ぐため、setjmp/longjmpにたいする値を暗号化して格納します。この保護を無効にするためには、環境変数LD_POINTER_GUARDに0をセットする必要があります。
 
 ** Using GDB in Emacs
 
-Debugging with GDB in Emacs offers some advantages over the command line
-(See the GDB Graphical Interface node of the Emacs manual).  There are also
-some features available just for debugging Emacs:
+Emacs内でのGDBによるデバッグには、コマンドラインでのデバッグにたいしていくつかの利点があります(EmacsマニュアルのGDB Graphical
+Interfaceノードを参照)。Emacsでのデバッグだけで利用できる機能もいくつかあります:
 
 1) The command gud-print is available on the tool bar (the 'p' icon) and
 allows the user to print the s-expression of the variable at point, in the
@@ -455,41 +384,29 @@ value of the lisp variable at point.
 
 ** Debugging what happens while preloading and dumping Emacs
 
-Debugging 'temacs' is useful when you want to establish whether a problem
-happens in an undumped Emacs.  To run 'temacs' under a debugger, type "gdb
-temacs", then start it with 'r -batch -l loadup'.
+ダンプされていないEmacsで発生する問題なのか確証を得たい場合は、'temacs'をデバッグするのが役立ちます。デバッガ配下で'temacs'を実行するには、"gdb
+temacs"とタイプしてから'r -batch -l loadup'で開始します。
 
-If you need to debug what happens during dumping, start it with 'r -batch -l
-loadup dump' instead.  For debugging the bootstrap dumping, use "loadup
-bootstrap" instead of "loadup dump".
+ダンプ中に何が起こっているかデバッグする必要がある場合は、かわりに'r -batch -l loadup
+dump'で開始します。bootstrapのダンプのデバッグには、"loadup dump"のかわりに"loadup
+bootstrap"を使用してください。
 
-If temacs actually succeeds when running under GDB in this way, do not try
-to run the dumped Emacs, because it was dumped with the GDB breakpoints in
-it.
+この方法によりGDB配下でtemacsの実行に実際に成功した場合は、ダンプされたEmacsの実行を試みないでください。なぜならそれはGDBのブレークポイントがセットされた状態でダンプされているからです。
 
 ** If you encounter X protocol errors
 
-The X server normally reports protocol errors asynchronously, so you find
-out about them long after the primitive which caused the error has returned.
+Xサーバーは通常、プロトコルエラーを非同期で報告するので、エラーがリターンされる原因の根本よりかなり後にそれらの見つけることになります。
 
-To get clear information about the cause of an error, try evaluating
-(x-synchronize t).  That puts Emacs into synchronous mode, where each Xlib
-call checks for errors before it returns.  This mode is much slower, but
-when you get an error, you will see exactly which call really caused the
-error.
+エラー原因についての明快な情報を入手するために、(x-synchronize
+t)を評価してみてください。これはEmacsを同期モードにして、それぞれのXlib呼び出しにたいしてリターン前にエラーをチェックします。このモードはかなり低速ですが、エラーが発生したとき、どの呼び出しがエラーを発生させたか正確に確認できるでしょう。
 
-You can start Emacs in a synchronous mode by invoking it with the -xrm
-option, like this:
+以下のように-xrmオプションとともに呼び出すことにより、同期モードでEmacsを開始できます:
 
     emacs -xrm "emacs.synchronous: true"
 
-Setting a breakpoint in the function 'x_error_quitter' and looking at the
-backtrace when Emacs stops inside that function will show what code causes
-the X protocol errors.
+関数'x_error_quitter'内にブレークポイントをセットして、Emacsがストップしたときにその関数内のバックトレースを調べれば、Xプロトコルエラーの原因となったコードを確認できるでしょう。
 
-Some bugs related to the X protocol disappear when Emacs runs in a
-synchronous mode.  To track down those bugs, we suggest the following
-procedure:
+同期モードでEmacsが実行中のときは発生しないXプロトコル関連のエラーもいくつかあります。これらのバグを追跡するために、以下の手順を提案します:
 
   - Run Emacs under a debugger and put a breakpoint inside the primitive
 function which, when called from Lisp, triggers the X protocol errors.  For
@@ -529,15 +446,10 @@ what is wrong with it.
 
 ** If Emacs causes errors or memory leaks in your X server
 
-You can trace the traffic between Emacs and your X server with a tool like
-xmon, available at ftp://ftp.x.org/contrib/devel_tools/.
+xmon(ftp://ftp.x.org/contrib/devel_tools/から入手可能)のようなツールで、EmacsとXサーバー間のトラフィックをトレースできます。
 
-Xmon can be used to see exactly what Emacs sends when X protocol errors
-happen.  If Emacs causes the X server memory usage to increase you can use
-xmon to see what items Emacs creates in the server (windows, graphical
-contexts, pixmaps) and what items Emacs delete.  If there are consistently
-more creations than deletions, the type of item and the activity you do when
-the items get created can give a hint where to start debugging.
+xmonはXプロトコルエラー発生時にEmacsが何を送信したのか正確に知るために使用できます。EmacsがXサーバーのメモリー使用を増大させている場合は、Xサーバー内にEmacsがどんなアイテム(windows、graphical
+contexts、pixmaps)を作成、または削除したかをxmonを使用して確認できます。もし終始一貫して削除より作成が多い場合は、そのアイテムの型とそのアイテムが作成されるとき行っていたアクティビティが、デバッグ開始のヒントになり得ます。
 
 ** If the symptom of the bug is that Emacs fails to respond
 
@@ -784,4 +696,7 @@ You should have received a copy of the GNU General Public License along with
 GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
 
 
-Local variables: mode: outline paragraph-separate: "[ 	]*$" end:
+Local variables:
+mode: org
+paragraph-separate: "[ 	\f]*$"
+end:

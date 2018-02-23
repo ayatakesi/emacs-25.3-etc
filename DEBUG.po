@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2018-02-22 15:55+0900\n"
-"PO-Revision-Date: 2018-02-22 23:28+0900\n"
+"PO-Revision-Date: 2018-02-24 00:05+0900\n"
 "Last-Translator: Ayanokoji Takesi <ayanokoji.takesi@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -580,17 +580,17 @@ msgid ""
 "error, you can use the GDB command 'pr'.  First print the value in the "
 "ordinary way, with the 'p' command.  Then type 'pr' with no arguments.  This "
 "calls a subroutine which uses the Lisp printer."
-msgstr ""
+msgstr "デバッグの生きたプロセスがあり、致命的なエラーに遭遇戦していなければ、GDBコマンド'pr'を使用できます。最初は通常の方法、'p'コマンドで値をプリントしてください。それから引数なしで'pr'とタイプします。これはLispプリンターを使用するサブルーチンを呼び出します。"
 
 #. type: Plain text
 #: DEBUG.orig:278
 msgid "You can also use 'pp value' to print the emacs value directly."
-msgstr ""
+msgstr "emacsの値を直接プリントするために、'pp value'を使用することもできます。"
 
 #. type: Plain text
 #: DEBUG.orig:280
 msgid "To see the current value of a Lisp Variable, use 'pv variable'."
-msgstr ""
+msgstr "Lisp変数のカレント値を確認するためには、'pv value'を使用します。"
 
 #. type: Plain text
 #: DEBUG.orig:286
@@ -600,7 +600,7 @@ msgid ""
 "particularly so for Emacs invoked on MS-Windows from the desktop shortcut.  "
 "On GNU/Linux, you can use the command 'redirect-debugging-output' to "
 "redirect stderr to a file."
-msgstr ""
+msgstr "これらのコマンドは出力をstderrに送ります。stderrがcloseされていたり、あなたには不明な何らかのファイルにリダイレクトされている場合、これらの出力を確認することはできないでしょう。これは特にMS-Windows上でデスクトップショートカットからEmacsが呼び出された場合が該当します。GNU/Linuxではコマンド'redirect-debugging-output'を使用して、stderrをファイルにリダイレクトできます。"
 
 #. type: Plain text
 #: DEBUG.orig:293
@@ -611,7 +611,7 @@ msgid ""
 "corrupted, etc.  In such cases, the Emacs subroutine called by 'pr' might "
 "make more damage, like overwrite some data that is important for debugging "
 "the original problem."
-msgstr ""
+msgstr "注意: Emacsが深刻なトラブルの渦中、スタックが破壊(たとえばスタックオーバーフローによるSIGSEGVなど)されていたり、'obarray'のようなデータ構造の循環参照や不正構造があると解っている状況で'pr'、'pp'、'pv'を試みるのは、良いアイデアではありません。このような場合、'pr'により呼び出されるEmacsサブルーチンは、元の問題をデバッグするために重要な何らかのデータを上書きしてしまう等、より多くのダメージを与えてしまうかもしれません。"
 
 #. type: Plain text
 #: DEBUG.orig:299
@@ -621,7 +621,7 @@ msgid ""
 "Emacs while it is waiting.  In such a situation, don't try to use 'pr'.  "
 "Instead, use 's' to step out of the system call.  Then Emacs will be between "
 "instructions and capable of handling 'pr'."
-msgstr ""
+msgstr "さらに'select'の内部にいる間にEmacsをストップした場合は、'pr'の使用が不可能なシステムもいくつかあります。Emacsがwaitしている間にEmacsをストップすると、これは実際に発生します。このような状況では、'pr'の使用を試みてはなりません。かわりにシステムコールをステップアウトするために、's'を使用してください。その後、Emacsは命令文の間に、'pr'を処理することができるようになるでしょう。"
 
 #. type: Plain text
 #: DEBUG.orig:303
@@ -629,7 +629,7 @@ msgid ""
 "If you can't use 'pr' command, for whatever reason, you can use the 'xpr' "
 "command to print out the data type and value of the last data value, For "
 "example:"
-msgstr ""
+msgstr "理由が何であれ、'pr'コマンドが使用できない場合は、直前のデータ値のデータ型と値をプリントする'xpr'コマンドを使用できます。"
 
 #. type: Plain text
 #: DEBUG.orig:306
@@ -638,6 +638,8 @@ msgid ""
 "    p it->object\n"
 "    xpr\n"
 msgstr ""
+"    p it->object\n"
+"    xpr\n"
 
 #. type: Plain text
 #: DEBUG.orig:311
@@ -646,7 +648,7 @@ msgid ""
 "'xtype' command to print out the data type of the last data value.  Once you "
 "know the data type, use the command that corresponds to that type.  Here are "
 "these commands:"
-msgstr ""
+msgstr "低レベルコマンドを使用して、データ値を分析するかもしれません。直前のデータ値のデータ型のプリントには、'xtype'コマンドを使用します。一度データ型が解れば、その型に対応するコマンドを使用できます。以下はそれらのコマンドです:"
 
 #. type: Plain text
 #: DEBUG.orig:317
@@ -658,13 +660,18 @@ msgid ""
 "    xchartable xsubchartable xboolvector xhashtable xlist xcoding\n"
 "    xcharset xfontset xfont xbytecode\n"
 msgstr ""
+"    xint xptr xwindow xmarker xoverlay xmiscfree xintfwd xboolfwd xobjfwd\n"
+"    xbufobjfwd xkbobjfwd xbuflocal xbuffer xsymbol xstring xvector xframe\n"
+"    xwinconfig xcompiled xcons xcar xcdr xsubr xprocess xfloat xscrollbar\n"
+"    xchartable xsubchartable xboolvector xhashtable xlist xcoding\n"
+"    xcharset xfontset xfont xbytecode\n"
 
 #. type: Plain text
 #: DEBUG.orig:321
 msgid ""
 "Each one of them applies to a certain type or class of types.  (Some of "
 "these types are not visible in Lisp, because they exist only internally.)"
-msgstr ""
+msgstr "これらの1つ1つは、特定の型やクラス型を受け入れます(これらの型のいくつかは内部的にのみ存在する型なので、Lispでは不可視です)。"
 
 #. type: Plain text
 #: DEBUG.orig:325
@@ -672,14 +679,14 @@ msgid ""
 "Each x... command prints some information about the value, and produces a "
 "GDB value (subsequently available in $) through which you can get at the "
 "rest of the contents."
-msgstr ""
+msgstr "それぞれのx...コマンドは、その内容の残りから得られるものを通じて、値についてのいくつかの情報と、GDB値(続けて$により利用可能)をプリントします。"
 
 #. type: Plain text
 #: DEBUG.orig:328
 msgid ""
 "In general, most of the rest of the contents will be additional Lisp objects "
 "which you can examine in turn with the x... commands."
-msgstr ""
+msgstr "一般的に内容の残りのほとんどはx...コマンドで順に検証していくことができる、追加のLispオブジェクトでしょう。"
 
 #. type: Plain text
 #: DEBUG.orig:334
@@ -689,7 +696,7 @@ msgid ""
 "using concepts explained in the node \"Value History\" of the GDB manual to "
 "print values associated with the variable called frame.  First, use these "
 "commands:"
-msgstr ""
+msgstr "生きたプロセスにおいても、これらのx...コマンドはバッファー、ウィンドウ、プロセス、マーカー内の検証に役立ちます。以下はフレームと呼ばれる変数に関連する値をプリントするために、GDBマニュアル\"Value History\"ノードで説明されている概念を使用する例です:"
 
 #. type: Plain text
 #: DEBUG.orig:339
@@ -700,11 +707,15 @@ msgid ""
 "  b set_frame_buffer_list\n"
 "  r -q\n"
 msgstr ""
+"  cd src\n"
+"  gdb emacs\n"
+"  b set_frame_buffer_list\n"
+"  r -q\n"
 
 #. type: Plain text
 #: DEBUG.orig:341
 msgid "Then Emacs hits the breakpoint:"
-msgstr ""
+msgstr "その後、Emacsはブレークポイントに達します:"
 
 #. type: Plain text
 #: DEBUG.orig:356
@@ -725,11 +736,25 @@ msgid ""
 "    [...]\n"
 "  }\n"
 msgstr ""
+"  (gdb) p frame\n"
+"  $1 = 139854428\n"
+"  (gdb) xpr\n"
+"  Lisp_Vectorlike\n"
+"  PVEC_FRAME\n"
+"  $2 = (struct frame *) 0x8560258\n"
+"  \"emacs@localhost\"\n"
+"  (gdb) p *$\n"
+"  $3 = {\n"
+"    size = 1073742931,\n"
+"    next = 0x85dfe58,\n"
+"    name = 140615219,\n"
+"    [...]\n"
+"  }\n"
 
 #. type: Plain text
 #: DEBUG.orig:358
 msgid "Now we can use 'pp' to print the frame parameters:"
-msgstr ""
+msgstr "これで'pp'を使用してフレームパラメーターをプリントできます:"
 
 #. type: Plain text
 #: DEBUG.orig:361
@@ -738,6 +763,8 @@ msgid ""
 "  (gdb) pp $->param_alist\n"
 "  ((background-mode . light) (display-type . color) [...])\n"
 msgstr ""
+"  (gdb) pp $->param_alist\n"
+"  ((background-mode . light) (display-type . color) [...])\n"
 
 #. type: Plain text
 #: DEBUG.orig:365
@@ -745,13 +772,13 @@ msgid ""
 "The Emacs C code heavily uses macros defined in lisp.h.  So suppose we want "
 "the address of the l-value expression near the bottom of 'add_command_key' "
 "from keyboard.c:"
-msgstr ""
+msgstr "EmacsのCコードは、lisp.h内で定義されたマクロを多用します。keyboard.cの'add_command_key'の最後の方にある左辺値式(l-value expression)のアドレスが知りたいとします:"
 
 #. type: Plain text
 #: DEBUG.orig:367
 #, no-wrap
 msgid "  XVECTOR (this_command_keys)->contents[this_command_key_count++] = key;\n"
-msgstr ""
+msgstr "  XVECTOR (this_command_keys)->contents[this_command_key_count++] = key;\n"
 
 #. type: Plain text
 #: DEBUG.orig:372
@@ -760,14 +787,14 @@ msgid ""
 "with preprocessor macro information.  GCC provides this if you specify the "
 "options '-gdwarf-N' (where N is 2 or higher) and '-g3'.  In this case, GDB "
 "can evaluate expressions like \"p XVECTOR (this_command_keys)\"."
-msgstr ""
+msgstr "XVECTORはマクロなので、Emacsがプリプロセッサーマクロ情報とともにコンパイルされた場合だけそれを知ることができます。オプション'-gdwarf-N'(Nは2以上)と'-g3'を指定した場合、GCCはこの情報を提供します。この場合、GDBは\"p XVECTOR (this_command_keys)\"のような式を評価できます。"
 
 #. type: Plain text
 #: DEBUG.orig:375
 msgid ""
 "When this information isn't available, you can use the xvector command in "
 "GDB to get the same result.  Here is how:"
-msgstr ""
+msgstr "この情報が利用できない場合は、同じ結果を得るためにGDB内でxvectorコマンドを使用できます。以下は使用方法です:"
 
 #. type: Plain text
 #: DEBUG.orig:385
@@ -783,6 +810,15 @@ msgid ""
 "  (gdb) p &$\n"
 "  $4 = (int *) 0x411008\n"
 msgstr ""
+"  (gdb) p this_command_keys\n"
+"  $1 = 1078005760\n"
+"  (gdb) xvector\n"
+"  $2 = (struct Lisp_Vector *) 0x411000\n"
+"  0\n"
+"  (gdb) p $->contents[this_command_key_count]\n"
+"  $3 = 1077872640\n"
+"  (gdb) p &$\n"
+"  $4 = (int *) 0x411008\n"
 
 #. type: Plain text
 #: DEBUG.orig:389
@@ -790,7 +826,7 @@ msgid ""
 "Here's a related example of macros and the GDB 'define' command.  There are "
 "many Lisp vectors such as 'recent_keys', which contains the last 300 "
 "keystrokes.  We can print this Lisp vector"
-msgstr ""
+msgstr "以下はマクロとGDBの'define'コマンドに関する例です。'recent_keys'(最後のキーストローク300個を含む)のようなLispベクターが多数存在します。このLispベクターを以下のようにしてプリントできます"
 
 #. type: Plain text
 #: DEBUG.orig:392
@@ -799,6 +835,8 @@ msgid ""
 "  p recent_keys\n"
 "  pr\n"
 msgstr ""
+"  p recent_keys\n"
+"  pr\n"
 
 #. type: Plain text
 #: DEBUG.orig:396
@@ -806,31 +844,31 @@ msgid ""
 "But this may be inconvenient, since 'recent_keys' is much more verbose than "
 "'C-h l'.  We might want to print only the last 10 elements of this vector.  "
 "'recent_keys' is updated in keyboard.c by the command"
-msgstr ""
+msgstr "'recent_keys'は'C-h l'に比べて出力が多く、これは不便かもしれません。わたしたちなら、このベクターの最後の10要素だけをプリントしたいと望むでしょう。'recent_keys'はkeyboard.c内でコマンドにより更新されます"
 
 #. type: Plain text
 #: DEBUG.orig:398
 #, no-wrap
 msgid "  XVECTOR (recent_keys)->contents[recent_keys_index] = c;\n"
-msgstr ""
+msgstr "  XVECTOR (recent_keys)->contents[recent_keys_index] = c;\n"
 
 #. type: Plain text
 #: DEBUG.orig:401
 msgid ""
 "So we define a GDB command 'xvector-elts', so the last 10 keystrokes are "
 "printed by"
-msgstr ""
+msgstr "わたしたちはGDBコマンド'xvector-elts'を定義して、以下のように最後のキーストローク10個をプリントします"
 
 #. type: Plain text
 #: DEBUG.orig:403
 #, no-wrap
 msgid "  xvector-elts recent_keys recent_keys_index 10\n"
-msgstr ""
+msgstr "  xvector-elts recent_keys recent_keys_index 10\n"
 
 #. type: Plain text
 #: DEBUG.orig:405
 msgid "where you can define xvector-elts as follows:"
-msgstr ""
+msgstr "ここでxvector-eltsは以下のように定義します:"
 
 #. type: Plain text
 #: DEBUG.orig:420
@@ -851,19 +889,33 @@ msgid ""
 "  prints 'i' elements of the vector 'v' ending at the index 'n'.\n"
 "  end\n"
 msgstr ""
+"  define xvector-elts\n"
+"  set $i = 0\n"
+"  p $arg0\n"
+"  xvector\n"
+"  set $foo = $\n"
+"  while $i < $arg2\n"
+"  p $foo->contents[$arg1-($i++)]\n"
+"  pr\n"
+"  end\n"
+"  document xvector-elts\n"
+"  Prints a range of elements of a Lisp vector.\n"
+"  xvector-elts  v n i\n"
+"  prints 'i' elements of the vector 'v' ending at the index 'n'.\n"
+"  end\n"
 
 #. type: Plain text
 #: DEBUG.orig:422
 #, no-wrap
 msgid "** Getting Lisp-level backtrace information within GDB\n"
-msgstr ""
+msgstr "** GDBでLispレベルのバックトレース情報を取得する\n"
 
 #. type: Plain text
 #: DEBUG.orig:425
 msgid ""
 "The most convenient way is to use the 'xbacktrace' command.  This shows the "
 "names of the Lisp functions that are currently active."
-msgstr ""
+msgstr "'xbacktrace'コマンドを使用するのがもっとも便利な方法です。これはカレントでアクティブなLisp関数の名前を表示します。"
 
 #. type: Plain text
 #: DEBUG.orig:431
@@ -873,7 +925,7 @@ msgid ""
 "and look for stack frames that call Ffuncall.  Select them one by one in "
 "GDB, by typing \"up N\", where N is the appropriate number of frames to go "
 "up, and in each frame that calls Ffuncall type this:"
-msgstr ""
+msgstr "もしこれが機能しない(たとえば'backtrace_list'構造が不正等により)場合は、Cレベルのバックトレースを生成するために、GDBプロンプトで\"bt\"とタイプして、Ffuncallを呼び出しているスタックフレームを探してください。\"up N\"とタイプして、それらのスタックフレームをGDBで1つずつ選択していきます。ここでNは上位フレームに移動するための適切な数字です。そしてFfuncallを呼び出しているフレームごとに以下をタイプします:"
 
 #. type: Plain text
 #: DEBUG.orig:434
@@ -882,20 +934,22 @@ msgid ""
 "   p *args\n"
 "   pr\n"
 msgstr ""
+"   p *args\n"
+"   pr\n"
 
 #. type: Plain text
 #: DEBUG.orig:437
 msgid ""
 "This will print the name of the Lisp function called by that level of "
 "function calling."
-msgstr ""
+msgstr "これにより、そのレベルの関数呼び出しにより呼び出されているLisp関数の名前がプリントされます。"
 
 #. type: Plain text
 #: DEBUG.orig:440
 msgid ""
 "By printing the remaining elements of args, you can see the argument "
 "values.  Here's how to print the first argument:"
-msgstr ""
+msgstr "argsの残りの要素をプリントすることにより、Lisp関数の引数の値を確認できます。以下は最初の引数をプリントする方法です:"
 
 #. type: Plain text
 #: DEBUG.orig:443
@@ -904,6 +958,8 @@ msgid ""
 "   p args[1]\n"
 "   pr\n"
 msgstr ""
+"   p args[1]\n"
+"   pr\n"
 
 #. type: Plain text
 #: DEBUG.orig:447
@@ -911,7 +967,7 @@ msgid ""
 "If you do not have a live process, you can use xtype and the other x...  "
 "commands such as xsymbol to get such information, albeit less conveniently.  "
 "For example:"
-msgstr ""
+msgstr "生きたプロセスがない場合は、xtypeと他のx...コマンドを使用できます。便利さは劣りますが、このような情報はxsymbolのようなコマンドで取得します。たとえば、"
 
 #. type: Plain text
 #: DEBUG.orig:450
@@ -920,17 +976,19 @@ msgid ""
 "   p *args\n"
 "   xtype\n"
 msgstr ""
+"   p *args\n"
+"   xtype\n"
 
 #. type: Plain text
 #: DEBUG.orig:452
 msgid "and, assuming that \"xtype\" says that args[0] is a symbol:"
-msgstr ""
+msgstr "\"xtype\"が、args[0]をsymbolだと告げた場合は:"
 
 #. type: Plain text
 #: DEBUG.orig:454
 #, no-wrap
 msgid "   xsymbol\n"
-msgstr ""
+msgstr "   xsymbol\n"
 
 #. type: Plain text
 #: DEBUG.orig:456
@@ -943,7 +1001,7 @@ msgstr "** Emacsの再表示に関する問題のデバッグ\n"
 msgid ""
 "If you configured Emacs with --enable-checking='glyphs', you can use "
 "redisplay tracing facilities from a running Emacs session."
-msgstr ""
+msgstr "--enable-checking='glyphs'でEmacsをconfigureした場合は、実行中のEmacsセッションから再表示(redisplay)トレース機能を使用できます。"
 
 #. type: Plain text
 #: DEBUG.orig:470
@@ -959,14 +1017,14 @@ msgid ""
 "'trace-redisplay', so that you have less clutter in the trace.  You can also "
 "have up to 30 last trace messages dumped to standard error by invoking the "
 "'dump-redisplay-history' command."
-msgstr ""
+msgstr "コマンド\"M-x trace-redisplay RET\"は再表示が行うことのトレースを標準エラーストリームに生成します。さまざまな状況下でディスプレイエンジンにより選択されるコードパス(code path:実際に実行されるコードの道筋)を理解するために、特にある再表示最適化が誤った結果を生成する場合に、非常に役に立ちます(承知のとおり、\"M-x redraw-display RET\"、あるいは\"M-x\"とタイプするだけでも、Emacsが誤った表示を修正するために再表示最適化がよびだされます)。カーソル点滅機能(cursor blinking feature)は定期的な再表示サイクルをトリガーするので、余計なものをトレースから減らすために、'trace-redisplay'を呼び出す前に'blink-cursor-mode'を無効にすることを推奨します。dump-redisplay-history'コマンドを呼び出して、最後のトレースメッセージを30個まで標準エラーにダンプすることもできます。"
 
 #. type: Plain text
 #: DEBUG.orig:473
 msgid ""
 "To find the code paths which were taken by the display engine, search "
 "xdisp.c for the trace messages you see."
-msgstr ""
+msgstr "ディスプレイエンジンが選択するコードパスを見つけるには、トレースメッセージからxdisp.cを探します。"
 
 #. type: Plain text
 #: DEBUG.orig:478
@@ -976,14 +1034,14 @@ msgid ""
 "function's doc string for more details.  If you are debugging redisplay "
 "issues in text-mode frames, you may find the command "
 "'dump-frame-glyph-matrix' useful."
-msgstr ""
+msgstr "コマンド'dump-glyph-matrix'は、選択されたウィンドウのグリフマトリクス(glyph matrix)の完全なダンプを標準エラーストリームに生成するのに役立ちます。詳細は関数のドキュメント文字列を参照してください。text-modeフレームで再表示に関する問題をデバッグしている場合は、コマンド'dump-frame-glyph-matrix'が便利なことに気づくかもしれません。"
 
 #. type: Plain text
 #: DEBUG.orig:481
 msgid ""
 "Other commands useful for debugging redisplay are 'dump-glyph-row' and "
 "'dump-tool-bar-row'."
-msgstr ""
+msgstr "再表示をデバッグするとき有用な他のコマンドには、'dump-glyph-row'と'dump-tool-bar-row'があります。"
 
 #. type: Plain text
 #: DEBUG.orig:486
@@ -992,27 +1050,27 @@ msgid ""
 "by just calling that function with the matrix as its argument.  For example, "
 "the following command will print the contents of the current matrix of the "
 "window whose pointer is in 'w':"
-msgstr ""
+msgstr "GDB配下でEmacsを実行している場合は、マトリクスを引数にその関数を呼び出すだけで、任意のグリフマトリクスの内容をプリントできます。たとえば、以下のコマンドは、ウィンドウ(ポインター'w')のカレントマトリクスの内容をプリントします:"
 
 #. type: Plain text
 #: DEBUG.orig:488
 #, no-wrap
 msgid "  (gdb) p dump_glyph_matrix (w->current_matrix, 2)\n"
-msgstr ""
+msgstr "  (gdb) p dump_glyph_matrix (w->current_matrix, 2)\n"
 
 #. type: Plain text
 #: DEBUG.orig:491
 msgid ""
 "(The second argument 2 tells dump_glyph_matrix to print the glyphs in a long "
 "form.)"
-msgstr ""
+msgstr "(2つ目の引数2はdump_glyph_matrixにグリフを長い形式プリントするよう指定します。)"
 
 #. type: Plain text
 #: DEBUG.orig:494
 msgid ""
 "The Emacs display code includes special debugging code, but it is normally "
 "disabled.  Configuring Emacs with --enable-checking='yes,glyphs' enables it."
-msgstr ""
+msgstr "ディスプレイ関係のEmacsのコードには特別なデバッグ用コードが含まれていますが、通常は無効になっています。--enable-checking='yes,glyphs'でEmacsをconfigureすることにより、これが有効になります。"
 
 #. type: Plain text
 #: DEBUG.orig:499
@@ -1021,21 +1079,21 @@ msgid ""
 "code operation more than Emacs does normally.  (To see the code which tests "
 "these assertions, look for calls to the 'eassert' macros.)  Any assertion "
 "that is reported to fail should be investigated."
-msgstr ""
+msgstr "このようにEmacsをビルドすると、ディスプレイコード処理を検査する多くのassertionが、通常Emacsが行うより多く活性化されます(これらのassertionが何をテストしているかは、'eassert'マクロ呼び出しを確認してください)。失敗を報告するassertionは精査するべきです。"
 
 #. type: Plain text
 #: DEBUG.orig:502
 msgid ""
 "When you debug display problems running emacs under X, you can use the 'ff' "
 "command to flush all pending display updates to the screen."
-msgstr ""
+msgstr "X配下で実行中のEmacsにたいしてディスプレイの問題をデバッグするときは、'ff'コマンドを使用して、待機中のすべての画面表示の更新をflushできます。"
 
 #. type: Plain text
 #: DEBUG.orig:505
 msgid ""
 "The src/.gdbinit file defines many useful commands for dumping redisplay "
 "related data structures in a terse and user-friendly format:"
-msgstr ""
+msgstr "src/.gdbinitファイルでは、再表示関連のデータ構造を簡潔でユーザーフレンドリーなフォーマットでダンプするためのコマンドが多数定義されています:"
 
 #. type: Plain text
 #: DEBUG.orig:514
@@ -1050,6 +1108,14 @@ msgid ""
 " 'pgrow' dumps all glyphs in current glyph_row 'row'.\n"
 " 'pcursor' dumps current output_cursor.\n"
 msgstr ""
+" 'ppt' カレントバッファーのPT値(ポイント値)、ナロー、ギャップをプリント。\n"
+" 'pit' カレントディスプレイイテレータ'it'をダンプ。\n"
+" 'pwin' カレントウィンドウ'win'をダンプ。\n"
+" 'prow' カレントグリフ行glyph_row 'row'をダンプ。\n"
+" 'pg' カレントグリフ'glyph'をダンプ。\n"
+" 'pgi' 次のグリフをダンプ。\n"
+" 'pgrow' カレントグリフ行glyph_row 'row'内のすべてのグリフをダンプ。\n"
+" 'pcursor' カレント出力カーソルoutput_cursorをダンプ。\n"
 
 #. type: Plain text
 #: DEBUG.orig:518
@@ -1057,7 +1123,7 @@ msgid ""
 "The above commands also exist in a version with an 'x' suffix which takes an "
 "object of the relevant type as argument.  For example, 'pgrowx' dumps all "
 "glyphs in its argument, which must be of type 'struct glyph_row'."
-msgstr ""
+msgstr "上記のコマンドには関連する型のオブジェクトを引数とする、サフィックス'x'のついたバージョンも存在します。たとえば、'pgrowx'は引数内のすべてのグリフをダンプします。引数の型は'struct glyph_row'でなければなりません。"
 
 #. type: Plain text
 #: DEBUG.orig:522
@@ -1066,7 +1132,7 @@ msgid ""
 "your breakpoints cleverly to avoid hitting them all the time, when the issue "
 "you are debugging did not (yet) happen.  Here are some useful techniques for "
 "that:"
-msgstr ""
+msgstr "再表示はEmacsにより非常に頻繁に行われるので、デバッグ中の問題が(まだ)発生していないのに、再表示のたびに毎回ブレークしてしまうのを避けるため、ブレークポイントを巧妙に配す必要があります。これに関する有用なテクニックを以下に挙げます:"
 
 #. type: Plain text
 #: DEBUG.orig:528
@@ -1077,7 +1143,7 @@ msgid ""
 "   redraw-display\".  The debugger will kick in, and you can set or enable\n"
 "   breakpoints in strategic places, knowing that the bad display will be\n"
 "   redrawn from scratch.\n"
-msgstr ""
+msgstr " . Emacsを実行する前に'Fredraw_display'にブレークポイントを置きます。その後で誤った表示が再現するのに必要な何かを行い、\"M-x redraw-display\"を呼び出してください。するとブレークによりデバッグに制御が渡ります。誤った表示がスクラッチから再描画されるのが解るので、戦略的な場所にブレークポイントをセットしたり有効にできます。\n"
 
 #. type: Plain text
 #: DEBUG.orig:536
@@ -1096,7 +1162,7 @@ msgid ""
 "   buffer by examining the value of w->contents: it should be the buffer "
 "whose\n"
 "   display you are debugging.\n"
-msgstr ""
+msgstr ". 間違ったカーソル位置をデバッグする場合は、ブレークポイントを置くのに適した場所は'set_cursor_from_row'です。この関数は最初、'redraw-display'の一部として呼び出されます。これはEmacsがミニバッファーを再描画するためで、通常これはあなたが望むものではないでしょう。そこで\"continue\"をタイプしてあなたが望む呼び出しを取得します。一般的には、w->contentsの値を検査して、常に'set_cursor_from_row'が正しいウィンドウとバッファーにたいして呼び出されているか検証してください。それはデバッグ中に表示されているバッファーであるべきです。\n"
 
 #. type: Plain text
 #: DEBUG.orig:542
@@ -1111,7 +1177,7 @@ msgid ""
 "'Fredraw_display',\n"
 "   as advised above, move cursor to that line before invoking "
 "'redraw-display'.\n"
-msgstr ""
+msgstr " . スクリーン行(別名はグリフ行)の内容をGDBコマンド'pgrow'で調べるのにもset_cursor_from_row'は適した場所です。もちろん最初に調査したいスクリーン行にカーソルがあるか確認する必要があります。上記のアドバイスにしたがい'Fredraw_display'にブレークポイントをセットした場合は、'redraw-display'を呼び出す前にその行にカーソルを移動してください。\n"
 
 #. type: Plain text
 #: DEBUG.orig:550
@@ -1129,13 +1195,13 @@ msgid ""
 "   accept a pointer to a 'struct it' object as their argument, so you can "
 "make\n"
 "   conditional breakpoints in those functions, like this:\n"
-msgstr ""
+msgstr " . 特定のバッファー位置や稀にしか使用されない特定の文字だけで問題が発生する場合は、ブレークポイント条件をそれらの値にすることができます。ディスプレイエンジンはバッファーと文字列位置を保守しており、それはit->currentメンバーを処理します。たとえば、バッファーの文字位置はit->current.pos.charposの中です。ほとんどの再表示関数は引数に'struct it'オブジェクトを受け取るので、以下のようにそれらの関数内に条件つきブレークポイントをセットできます:\n"
 
 #. type: Plain text
 #: DEBUG.orig:552
 #, no-wrap
 msgid "    (gdb) break x_produce_glyphs if it->current.pos.charpos == 1234\n"
-msgstr ""
+msgstr "    (gdb) break x_produce_glyphs if it->current.pos.charpos == 1234\n"
 
 #. type: Plain text
 #: DEBUG.orig:555
@@ -1143,7 +1209,7 @@ msgstr ""
 msgid ""
 "   For conditioning on the character being displayed, use it->c or\n"
 "   it->char_to_display.\n"
-msgstr ""
+msgstr "   表示される文字にたいする条件には、it->cまたはit->char_to_displayを使用してください。\n"
 
 #. type: Plain text
 #: DEBUG.orig:562
@@ -1157,13 +1223,13 @@ msgid ""
 "string),\n"
 "   GET_FROM_IMAGE for displaying an image, etc.  See 'enum it_method' in\n"
 "   dispextern.h for the full list of values.\n"
-msgstr ""
+msgstr " . 表示のためのグリフ生成に使用されるオブジェクトの種類にたいしてブレークポイント条件をセットすることもできます。it->methodメンバーの値がGET_FROM_BUFFERならバッファー内容の表示、GET_FROM_STRINGならLisp文字列(たとえば'display'プロパティやオーバーレイ文字列)の表示、GET_FROM_IMAGEならイメージの表示、...です。この値の完全なリストは、dispextern.h内の'enum it_method'を確認してください。\n"
 
 #. type: Plain text
 #: DEBUG.orig:564
 #, no-wrap
 msgid "** Following longjmp call.\n"
-msgstr ""
+msgstr "** longjmp呼び出しの追跡。\n"
 
 #. type: Plain text
 #: DEBUG.orig:569
@@ -1172,13 +1238,13 @@ msgid ""
 "which prevents GDB from being able to follow a longjmp call using 'next'.  "
 "To disable this protection you need to set the environment variable "
 "LD_POINTER_GUARD to 0."
-msgstr ""
+msgstr "最新バージョンのglibc(2.4+?)は、GDBの'next'使用によるlongjmp呼び出しの追跡を防ぐため、setjmp/longjmpにたいする値を暗号化して格納します。この保護を無効にするためには、環境変数LD_POINTER_GUARDに0をセットする必要があります。"
 
 #. type: Plain text
 #: DEBUG.orig:571
 #, no-wrap
 msgid "** Using GDB in Emacs\n"
-msgstr ""
+msgstr "** Emacs内でのGDBの使用\n"
 
 #. type: Plain text
 #: DEBUG.orig:575
@@ -1186,7 +1252,7 @@ msgid ""
 "Debugging with GDB in Emacs offers some advantages over the command line "
 "(See the GDB Graphical Interface node of the Emacs manual).  There are also "
 "some features available just for debugging Emacs:"
-msgstr ""
+msgstr "Emacs内でのGDBによるデバッグには、コマンドラインでのデバッグにたいしていくつかの利点があります(EmacsマニュアルのGDB Graphical Interfaceノードを参照)。Emacsでのデバッグだけで利用できる機能もいくつかあります:"
 
 #. type: Bullet: '1) '
 #: DEBUG.orig:579
@@ -1194,34 +1260,34 @@ msgid ""
 "The command gud-print is available on the tool bar (the 'p' icon) and allows "
 "the user to print the s-expression of the variable at point, in the GUD "
 "buffer."
-msgstr ""
+msgstr "ツールバー('p'アイコン)からコマンドgud-printが利用でき、GUDバッファーではポイント位置の変数のS式をプリントできます。"
 
 #. type: Bullet: '2) '
 #: DEBUG.orig:582
 msgid ""
 "Pressing 'p' on a component of a watch expression that is a lisp object in "
 "the speedbar prints its s-expression in the GUD buffer."
-msgstr ""
+msgstr "スピードバーのwatch式のコンポーネント(Lispオブジェクト)で'p'を押下すると、GUDバッファーにそのLispオブジェクトのS式がプリントされます。"
 
 #. type: Bullet: '3) '
 #: DEBUG.orig:586
 msgid ""
 "The STOP button on the tool bar and the Signals->STOP menu-bar menu item are "
 "adjusted so that they send SIGTSTP instead of the usual SIGINT."
-msgstr ""
+msgstr "ツールバーのSTOPボタンとメニューバーのメニューアイテムSignals->STOPは調整済みなので、通常のSIGINTのかわりにSIGTSTPが送られます。"
 
 #. type: Bullet: '4) '
 #: DEBUG.orig:589
 msgid ""
 "The command gud-pv has the global binding 'C-x C-a C-v' and prints the value "
 "of the lisp variable at point."
-msgstr ""
+msgstr "ポイント位置のLisp変数の値をプリントするコマンドgud-pvは、'C-x C-a C-v'にグローバルにバインドされます。"
 
 #. type: Plain text
 #: DEBUG.orig:591
 #, no-wrap
 msgid "** Debugging what happens while preloading and dumping Emacs\n"
-msgstr ""
+msgstr "** preloadやEmacsのダンプ中に何が起こっているかデバッグする\n"
 
 #. type: Plain text
 #: DEBUG.orig:595
@@ -1229,7 +1295,7 @@ msgid ""
 "Debugging 'temacs' is useful when you want to establish whether a problem "
 "happens in an undumped Emacs.  To run 'temacs' under a debugger, type \"gdb "
 "temacs\", then start it with 'r -batch -l loadup'."
-msgstr ""
+msgstr "ダンプされていないEmacsで発生する問題なのか確証を得たい場合は、'temacs'をデバッグするのが役立ちます。デバッガ配下で'temacs'を実行するには、\"gdb temacs\"とタイプしてから'r -batch -l loadup'で開始します。"
 
 #. type: Plain text
 #: DEBUG.orig:599
@@ -1237,7 +1303,7 @@ msgid ""
 "If you need to debug what happens during dumping, start it with 'r -batch -l "
 "loadup dump' instead.  For debugging the bootstrap dumping, use \"loadup "
 "bootstrap\" instead of \"loadup dump\"."
-msgstr ""
+msgstr "ダンプ中に何が起こっているかデバッグする必要がある場合は、かわりに'r -batch -l loadup dump'で開始します。bootstrapのダンプのデバッグには、\"loadup dump\"のかわりに\"loadup bootstrap\"を使用してください。"
 
 #. type: Plain text
 #: DEBUG.orig:603
@@ -1245,20 +1311,20 @@ msgid ""
 "If temacs actually succeeds when running under GDB in this way, do not try "
 "to run the dumped Emacs, because it was dumped with the GDB breakpoints in "
 "it."
-msgstr ""
+msgstr "この方法によりGDB配下でtemacsの実行に実際に成功した場合は、ダンプされたEmacsの実行を試みないでください。なぜならそれはGDBのブレークポイントがセットされた状態でダンプされているからです。"
 
 #. type: Plain text
 #: DEBUG.orig:605
 #, no-wrap
 msgid "** If you encounter X protocol errors\n"
-msgstr ""
+msgstr "** Xプロトコルエラーに遭遇したシェル\n"
 
 #. type: Plain text
 #: DEBUG.orig:609
 msgid ""
 "The X server normally reports protocol errors asynchronously, so you find "
 "out about them long after the primitive which caused the error has returned."
-msgstr ""
+msgstr "Xサーバーは通常、プロトコルエラーを非同期で報告するので、エラーがリターンされる原因の根本よりかなり後にそれらの見つけることになります。"
 
 #. type: Plain text
 #: DEBUG.orig:615
@@ -1268,20 +1334,20 @@ msgid ""
 "call checks for errors before it returns.  This mode is much slower, but "
 "when you get an error, you will see exactly which call really caused the "
 "error."
-msgstr ""
+msgstr "エラー原因についての明快な情報を入手するために、(x-synchronize t)を評価してみてください。これはEmacsを同期モードにして、それぞれのXlib呼び出しにたいしてリターン前にエラーをチェックします。このモードはかなり低速ですが、エラーが発生したとき、どの呼び出しがエラーを発生させたか正確に確認できるでしょう。"
 
 #. type: Plain text
 #: DEBUG.orig:618
 msgid ""
 "You can start Emacs in a synchronous mode by invoking it with the -xrm "
 "option, like this:"
-msgstr ""
+msgstr "以下のように-xrmオプションとともに呼び出すことにより、同期モードでEmacsを開始できます:"
 
 #. type: Plain text
 #: DEBUG.orig:620
 #, no-wrap
 msgid "    emacs -xrm \"emacs.synchronous: true\"\n"
-msgstr ""
+msgstr "    emacs -xrm \"emacs.synchronous: true\"\n"
 
 #. type: Plain text
 #: DEBUG.orig:624
@@ -1289,7 +1355,7 @@ msgid ""
 "Setting a breakpoint in the function 'x_error_quitter' and looking at the "
 "backtrace when Emacs stops inside that function will show what code causes "
 "the X protocol errors."
-msgstr ""
+msgstr "関数'x_error_quitter'内にブレークポイントをセットして、Emacsがストップしたときにその関数内のバックトレースを調べれば、Xプロトコルエラーの原因となったコードを確認できるでしょう。"
 
 #. type: Plain text
 #: DEBUG.orig:628
@@ -1297,7 +1363,7 @@ msgid ""
 "Some bugs related to the X protocol disappear when Emacs runs in a "
 "synchronous mode.  To track down those bugs, we suggest the following "
 "procedure:"
-msgstr ""
+msgstr "同期モードでEmacsが実行中のときは発生しないXプロトコル関連のエラーもいくつかあります。これらのバグを追跡するために、以下の手順を提案します:"
 
 #. type: Bullet: '  - '
 #: DEBUG.orig:633
@@ -1306,27 +1372,27 @@ msgid ""
 "function which, when called from Lisp, triggers the X protocol errors.  For "
 "example, if the errors happen when you delete a frame, put a breakpoint "
 "inside 'Fdelete_frame'."
-msgstr ""
+msgstr "デバッガ配下でEmacsを実行して、Lisp関数から呼び出されたときXプロトコルエラーを発生するプリミティブ関数の中にブレークポイントを置きます。たとえばフレームを削除したときエラーが発生する場合は、'Fdelete_frame'の中にブレークポイントを置いてください。"
 
 #. type: Bullet: '  - '
 #: DEBUG.orig:637
 msgid ""
 "When the breakpoint breaks, step through the code, looking for calls to X "
 "functions (the ones whose names begin with \"X\" or \"Xt\" or \"Xm\")."
-msgstr ""
+msgstr "ブレークポイントでブレークしたとき、コードをステップ実行してX関数(\"X\"、\"Xt\"、\"Xm\"で始まる関数)の呼び出しを探してください。"
 
 #. type: Bullet: '  - '
 #: DEBUG.orig:640
 msgid ""
 "Insert calls to 'XSync' before and after each call to the X functions, like "
 "this:"
-msgstr ""
+msgstr "以下のように、それぞれのX関数呼び出しの前後に'XSync'呼び出しを挿入します。"
 
 #. type: Plain text
 #: DEBUG.orig:642
 #, no-wrap
 msgid "       XSync (f->output_data.x->display_info->display, 0);\n"
-msgstr ""
+msgstr "       XSync (f->output_data.x->display_info->display, 0);\n"
 
 #. type: Plain text
 #: DEBUG.orig:648
@@ -1337,7 +1403,7 @@ msgid ""
 "    functions which call X already have some variable that holds the\n"
 "    pointer to the frame, perhaps called 'f' or 'sf', so you shouldn't\n"
 "    need to compute it.)\n"
-msgstr ""
+msgstr "    ここで'f'は選択されたフレームの'struct frame'で、通常はXFRAME(selected_frame)を通じて利用できます(Xを呼び出すほとんどの関数はフレームへのポインターを保持するために、もしかしたら'f'や'sf'と呼ばれる変数をすでにもっているので、その場合はそれを計算する必要はありません)。\n"
 
 #. type: Plain text
 #: DEBUG.orig:652
@@ -1346,13 +1412,13 @@ msgid ""
 "    If your debugger can call functions in the program being debugged,\n"
 "    you should be able to issue the calls to 'XSync' without recompiling\n"
 "    Emacs.  For example, with GDB, just type:\n"
-msgstr ""
+msgstr "    あなたのデバッガがデバッガ中のプログラム内の関数を呼び出せる場合は、Emacsをリコンパイルせずに'XSync'を呼び出せて然るべきです。GDBでは単に:\n"
 
 #. type: Plain text
 #: DEBUG.orig:654
 #, no-wrap
 msgid "       call XSync (f->output_data.x->display_info->display, 0)\n"
-msgstr ""
+msgstr "       call XSync (f->output_data.x->display_info->display, 0)\n"
 
 #. type: Plain text
 #: DEBUG.orig:658
@@ -1361,7 +1427,7 @@ msgid ""
 "    before and immediately after the suspect X calls.  If your\n"
 "    debugger does not support this, you will need to add these pairs\n"
 "    of calls in the source and rebuild Emacs.\n"
-msgstr ""
+msgstr "    これを疑わしいX呼び出しの前後でタイプするだけです。デバッガがこれをサポートしなければ、これらの呼び出しの組をソースに追加して、Emacsをリビルドする必要があるでしょう。\n"
 
 #. type: Plain text
 #: DEBUG.orig:664
@@ -1372,27 +1438,27 @@ msgid ""
 "    which a call to 'XSync' winds up in the function\n"
 "    'x_error_quitter'.  The first X function call for which this\n"
 "    happens is the one that generated the X protocol error.\n"
-msgstr ""
+msgstr "    どちらの方法でも、'XSync'の後に'x_error_quitter'関数に遷移するようなEmacsに呼び出される最初のX関数が見つかるまで、体系的にコードをステップ実行してこれらの呼び出しを行います。これが発生する最初のX関数呼び出しがXプロトコルエラーを発生しています。\n"
 
 #. type: Bullet: '  - '
 #: DEBUG.orig:667
 msgid ""
 "You should now look around this offending X call and try to figure out what "
 "is wrong with it."
-msgstr ""
+msgstr "これであなたは目障りなX呼び出しを見つけ出して、何が悪いのか解決を試みることができます。"
 
 #. type: Plain text
 #: DEBUG.orig:669
 #, no-wrap
 msgid "** If Emacs causes errors or memory leaks in your X server\n"
-msgstr ""
+msgstr "** EmacsがXサーバー内でエラーやメモリーリークを起こす場合\n"
 
 #. type: Plain text
 #: DEBUG.orig:672
 msgid ""
 "You can trace the traffic between Emacs and your X server with a tool like "
 "xmon, available at ftp://ftp.x.org/contrib/devel_tools/."
-msgstr ""
+msgstr "xmon(ftp://ftp.x.org/contrib/devel_tools/から入手可能)のようなツールで、EmacsとXサーバー間のトラフィックをトレースできます。"
 
 #. type: Plain text
 #: DEBUG.orig:680
@@ -1403,7 +1469,7 @@ msgid ""
 "contexts, pixmaps) and what items Emacs delete.  If there are consistently "
 "more creations than deletions, the type of item and the activity you do when "
 "the items get created can give a hint where to start debugging."
-msgstr ""
+msgstr "xmonはXプロトコルエラー発生時にEmacsが何を送信したのか正確に知るために使用できます。EmacsがXサーバーのメモリー使用を増大させている場合は、Xサーバー内にEmacsがどんなアイテム(windows、graphical contexts、pixmaps)を作成、または削除したかをxmonを使用して確認できます。もし終始一貫して削除より作成が多い場合は、そのアイテムの型とそのアイテムが作成されるとき行っていたアクティビティが、デバッグ開始のヒントになり得ます。"
 
 #. type: Plain text
 #: DEBUG.orig:682
@@ -1899,3 +1965,7 @@ msgstr ""
 #: DEBUG.orig:951
 msgid "Local variables: mode: outline paragraph-separate: \"[ \t]*$\" end:"
 msgstr ""
+"Local variables:\n"
+"mode: org\n"
+"paragraph-separate: \"[ \t\f]*$\"\n"
+"end:"
