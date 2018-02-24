@@ -1,0 +1,1519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-02-23 Fri 21:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="unknown" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org48b17b2">1. Preliminaries</a>
+<ul>
+<li><a href="#org786557a">1.1. Configuring Emacs for debugging</a></li>
+<li><a href="#orgcb106a2">1.2. Configuring GDB</a></li>
+<li><a href="#org2bbb925">1.3. Use the Emacs GDB UI front-end</a></li>
+<li><a href="#orga0c020d">1.4. Setting initial breakpoints</a></li>
+</ul>
+</li>
+<li><a href="#orgb91fc7d">2. When you are trying to analyze failed assertions or backtraces, it is</a></li>
+<li><a href="#org81ee362">3. It is a good idea to run Emacs under GDB (or some other suitable</a></li>
+<li><a href="#org91b68b2">4. If Emacs hangs, or seems to be stuck in some infinite loop, typing "kill</a></li>
+<li><a href="#org7b3dc09">5. Getting control to the debugger</a></li>
+<li><a href="#org9461ccc">6. Examining Lisp object values.</a></li>
+<li><a href="#orgad3f23d">7. Getting Lisp-level backtrace information within GDB</a></li>
+<li><a href="#orgfe95891">8. Debugging Emacs redisplay problems</a></li>
+<li><a href="#orgc2c562e">9. Following longjmp call.</a></li>
+<li><a href="#org82b413b">10. Using GDB in Emacs</a></li>
+<li><a href="#org3199db9">11. Debugging what happens while preloading and dumping Emacs</a></li>
+<li><a href="#orgfe88298">12. If you encounter X protocol errors</a></li>
+<li><a href="#orga12fbae">13. If Emacs causes errors or memory leaks in your X server</a></li>
+<li><a href="#org6146e66">14. If the symptom of the bug is that Emacs fails to respond</a></li>
+<li><a href="#org1169b54">15. If certain operations in Emacs are slower than they used to be, here is</a></li>
+<li><a href="#orgfea42b5">16. If GDB does not run and your debuggers can't load Emacs.</a></li>
+<li><a href="#orgd26a9df">17. Debugging incorrect screen updating on a text terminal.</a></li>
+<li><a href="#org3bfa84b">18. Debugging LessTif</a></li>
+<li><a href="#orgad71bab">19. Debugging problems which happen in GC</a></li>
+<li><a href="#org69051be">20. Debugging problems with non-ASCII characters</a></li>
+<li><a href="#org48ec23b">21. Debugging the TTY (non-windowed) version</a></li>
+<li><a href="#orga456613">22. Running Emacs built with malloc debugging packages</a></li>
+<li><a href="#org989974b">23. How to recover buffer contents from an Emacs core dump file</a></li>
+</ul>
+</div>
+</div>
+<p>
+GNU Emacsのデバッグ
+</p>
+
+<p>
+Copyright (C) 1985, 2000-2017 Free Software Foundation, Inc.  See the end of
+the file for license conditions.
+</p>
+
+<div id="outline-container-org48b17b2" class="outline-2">
+<h2 id="org48b17b2"><span class="section-number-2">1</span> Preliminaries</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+このセクションは、あなたがすでにdebug情報つきEmacsのビルドや、GDBの設定と開始、GDBによる簡単なデバッグテクニックに親しんでいる場合はスキップできます。
+</p>
+</div>
+
+<div id="outline-container-org786557a" class="outline-3">
+<h3 id="org786557a"><span class="section-number-3">1.1</span> Configuring Emacs for debugging</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+デバッグを簡単にするには、特別なオプションでEmacsをconfigureしてビルドするのが最善です。以下はわたしたちが推奨するconfigure時のオプションです(これらのオプションは、&#x2013;prefixのようなあなたが必要とするかもしれない他のオプションに追加します)。
+</p>
+
+<p>
+  CFLAGS='-O0 -g3' ./configure &#x2013;enable-checking='yes,glyphs'
+&#x2013;enable-check-lisp-object-type
+</p>
+
+<p>
+CFLAGSの値は重要です。なぜなら最適化されたコードのデバッグはとても困難だからです。(最適化されたコードでのみ問題が発生する場合は、最適化を有効にする必要があるかもしれません。このような場合は-O2のかわりにまず-Ogの使用を試みてください。-Ogはある種のコードのデバッグを極めて困難にするいくつかの最適化を無効にします。)
+</p>
+
+<p>
+GCCのモダンなバージョンはコンパイラースイッチに-g3を使用するだけで利用できる、より精緻なdebug情報をサポートします。-g3に加えて-gdwarf-4を、それが失敗するようなら-gdwarf-3を試してみてください。これは最適化されたコードをデバッグする必要がある場合、とても重要になります。これに関する追加情報は以下の"analyze
+failed assertionsの検索"にあります。
+</p>
+
+<p>
+2つの&#x2013;enable-*スイッチはオプションです。これらはGDBによるデバッグに影響を与えませんが、デバッグしている問題をより早くcatchするかもしれない追加コードをassertion
+violation形式でコンパイルします。&#x2013;enable-checkingオプションは表示に関する問題をデバッグするのに有用な追加機能も有効にします。詳細は、以下の"Emacsの再表示に関する問題のデバッグ"を参照してください。
+</p>
+
+<p>
+デバッグ用のEmacsをインストールする必要はありません。'src'ディレクトリーに作成されるバイナリーをデバッグできます。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcb106a2" class="outline-3">
+<h3 id="orgcb106a2"><span class="section-number-3">1.2</span> Configuring GDB</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+GDBでEmacをデバッグするときは、Emacs実行形式が作成されたディレクトリー(Emacsソースツリー内の'src'ディレクトリー)から直接GDBを開始するべきです。このディレクトリーには、Emacsをデバッグするためのさまざまなユーザー定義コマンドを定義する、.gdbinitファイルがあります(これらのコマンドは以下の"Lispオブジェクトの値の調査"および"Emacsの再表示に関する問題のデバッグ"で説明されています)。
+</p>
+
+<p>
+カレントバッファーでEmacsのCソースファイルのどれか1つをvisitしているときに、Emacsから"M-x
+gdb"コマンド(以下参照)によりデバッガーを開始すると、'src'ディレクトリー内で自動的にGDBが開始されます。
+</p>
+
+<p>
+GDBのいくつかのバージョンでは、デフォルトではGDBを呼び出したディレクトリー内の.gdbinitファイルを自動的にロードしません。このようなバージョンのGDBでは、GDBを開始したとき以下のような警告を目にするかもしれません:
+</p>
+
+<p>
+  warning: File "&#x2026;/src/.gdbinit" auto-loading has been declined by your
+`auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+</p>
+
+<p>
+これを修正するには~/.gdbinitファイルに以下の行を追加するのが、もっとも簡単な方法です:
+</p>
+
+<p>
+add-auto-load-safe-path <i>path/to/emacs/src</i>.gdbinit
+</p>
+
+<p>
+この問題を克服するための方法は他にもいくつかあり、それらはすべてGDBユーザーマニュアルの"Auto-loading safe
+path"ノードで説明されています。それらでも効果がない場合は、無条件でGDB initファイルをロードするために、GDBプロンプトで"source
+<i>path/to</i>.gdbinit RET"とタイプしてください。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2bbb925" class="outline-3">
+<h3 id="org2bbb925"><span class="section-number-3">1.3</span> Use the Emacs GDB UI front-end</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+わたしたちはEmacsが提供するGDB用のGUIフロントエンドの使用を推奨します。
+We recommend using the GUI front-end for GDB provided by Emacs.
+このフロントエンドは、"M-x gdb RET"とタイプしてGDBを開始できます。
+With it, you can start GDB by typing
+このコマンドはデバッグするデフォルトのバイナリーのファイル名を提案します。この提案されるデフォルトが、デバッグしたいEmacsバイナリーと異なる場合は、必要に応じてファイル名を変更してください。かわりに、すでに実行中のEmacsプロセスにデバッガをアタッチしたい場合は、ミニバッファーに表示されているGDBコマンドにそれを告げるように変更します:
+</p>
+
+<p>
+gdb -i=mi -p PID
+</p>
+
+<p>
+ここでPIDはPosixホストでは'top'や'ps'のようなシステムユーティリティーで、MS-WindowsではTask
+Managerで表示される、実行中EmacsのPID数値です。
+</p>
+
+<p>
+一度デバッガが起動すると"M-x gdb-many-windows
+RET"とタイプすることにより、GDBUIが提供する追加のウィンドウがオープンします(メニューバーの"Gud-&gt;GDB-MI-&gt;Display
+Other
+Windows"をクリックしてもオープンできる)。この時点では、オープンしたウィンドウが水平スクロールせずに内容を表示するのに十分なスペースがあるよう、フレームを十分に大きく(またはフルスクリーン)しておいてください。
+</p>
+
+<p>
+ウィンドウ構成は後でコマンド"M-x gdb-restore-windows RET"、またはメニューバーの"Display Other
+Windows"を選択解除すればリストアできます。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga0c020d" class="outline-3">
+<h3 id="orga0c020d"><span class="section-number-3">1.4</span> Setting initial breakpoints</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Emacsを実行させる前に、デバッガしたいコードにブレークポイントをセットすべきときです。ブレークポイントをセットすればEmacsはそこでストップして、GDBに制御を渡せます。デバッグしたいコードが、ある稀な状況下で実行されるコードであったり、特定のEmacsコマンドを手動で呼び出したときだけ実行されるコードの場合は、そこにブレークポイントをセットしてEmacsを実行すれば、そのコマンドの呼び出し、またはそれらの稀な状況を再現することにより、ブレークポイントがトリガーされます。
+</p>
+
+<p>
+それほど幸運でなく、問題となっているコードが非常に頻繁に実行される場合は、バグのある振る舞いが発生する条件までブレークポイントがトリガーされないようにする方法を見つける必要があります。これにたいする唯一の処方はありません。あなたはより創造的になるとともに、何が適切か判断するためにコードを学ぶ必要があるでしょう。以下に、これにたいする有用なトリックをいくつか挙げます:
+</p>
+
+<p>
+  . Make your breakpoint conditional on certain buffer or string position.
+For example:
+</p>
+
+<p>
+(gdb) break foo.c:1234 if PT &gt;= 9876
+</p>
+
+<p>
+  . Set a break point in some rarely called function, then create the
+conditions for the bug, call that rare function, and when GDB gets control,
+set the breakpoint in the buggy code, knowing that it will now be called
+when the bug happens.
+</p>
+
+<p>
+  . If the bug manifests itself as an error message, set a breakpoint in
+Fsignal, and when it breaks, look at the backtrace to see what triggers the
+error.
+</p>
+
+<p>
+他の追加テクニックは、以下の"デバッガに制御を渡す"で説明されています。
+</p>
+
+<p>
+これでデバッグセッションを開始する準備ができました。
+</p>
+
+<p>
+新たなEmacsセッションを開始した場合は、*gud-emacs*バッファー内で"run"とタイプした後にコマンドライン引数(例
+"-Q")を続けてからRETを押下します。
+</p>
+
+<p>
+実行中のEmacsにデバッガをアタッチした場合は、*gud-emacs*バッファー内で"continue"とタイプしてからRETを押下します。
+</p>
+
+<p>
+Lispオブジェクトをデバッガする間、多くの変数に出会うことでしょう。これらは整数値(configure時に"&#x2013;enable-check-lisp-object-type"オプションを使用した場合は構造体)なので解釈が困難であり、とりわけ長いリストで表現されている場合は困難です。これらをLisp形式で表示するために、'pp'コマンドを使用できます。このコマンドは出力を標準エラーストリーム(GNU/Linuxシステムでは"M-x
+redirect-debugging-output"を使用してファイルにリダイレクトできます)に表示します。これはデスクトップアイコンから呼び出された実行中のEmacsにGDBをアタッチした場合に、出力を確認できなかったり、出力がどこか不明な場所(デスクトップ環境のドキュメントをチェックしてください)に切り捨てられる危険があることを意味します。
+</p>
+
+<p>
+Lispオブジェクトの表示に関する追加情報は、以下の"Lispオブジェクトの値の調査"で見つけることができます。
+</p>
+
+<p>
+このドキュメントの残りの部分は、Emacsのデバッグにおいて特に有用なテクニックを説明します。初めてEmacsをデバッグしようとするときは全体をありのまま目を通しておいて、必要なときに特定の問題を参照するよう、わたしたちは提案します。
+</p>
+
+<p>
+Good luck!
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb91fc7d" class="outline-2">
+<h2 id="orgb91fc7d"><span class="section-number-2">2</span> When you are trying to analyze failed assertions or backtraces, it is</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+essential to compile Emacs with flags suitable for debugging.  With GCC 4.8
+or later, you can invoke 'make' with CFLAGS="-Og -g3".  With older GCC or
+non-GCC compilers, you can use CFLAGS="-O0 -g3".  With GCC and higher
+optimization levels such as -O2, the -fno-omit-frame-pointer and
+-fno-crossjumping options are often essential.  The latter prevents GCC from
+using the same abort call for all assertions in a given function, rendering
+the stack backtrace useless for identifying the specific failed assertion.
+Some versions of GCC support recent versions of the DWARF standard for
+debugging info, but default to older versions; for example, they could
+support -gdwarf-4 compiler option (for DWARF v4), but default to version 2
+of the DWARF standard.  For best results in debugging abilities, find out
+the highest version of DWARF your GCC can support, and use the corresponding
+-gdwarf-N switch instead of just -g (you will still need -g3, as in
+"-gdwarf-4 -g3").
+</p>
+</div>
+</div>
+
+<div id="outline-container-org81ee362" class="outline-2">
+<h2 id="org81ee362"><span class="section-number-2">3</span> It is a good idea to run Emacs under GDB (or some other suitable</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+debugger) <b>all the time</b>.  Then, when Emacs crashes, you will be able to
+debug the live process, not just a core dump.  (This is especially important
+on systems which don't support core files, and instead print just the
+registers and some stack addresses.)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org91b68b2" class="outline-2">
+<h2 id="org91b68b2"><span class="section-number-2">4</span> If Emacs hangs, or seems to be stuck in some infinite loop, typing "kill</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+-TSTP PID", where PID is the Emacs process ID, will cause GDB to kick in,
+provided that you run under GDB.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7b3dc09" class="outline-2">
+<h2 id="org7b3dc09"><span class="section-number-2">5</span> Getting control to the debugger</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+デバッガにEmacsをロードした後で、それを実行する前に効果的な場所にブレークポイントをセットすることは、必要なときにデバッガに確実に制御をリターンさせるもっとも効果的な方法です。
+</p>
+
+<p>
+'Fsignal'はブレークポイントを配すのに、とても役に立つ場所です。すべてのLispエラーはここを通過します。Lispデバッガを起動させるエラーだけに関心がある場合は、'maybe<sub>call</sub><sub>debugger</sub>'にブレークポイントを置くのが役に立つでしょう。
+</p>
+
+<p>
+デバッガに制御を渡す他のテクニックとして、稀に使用されるいくつかの関数にブレークポイントを配す方法があります。そのような便利な関数の1つがFredraw<sub>displayで</sub>、これは"M-x
+redraw-display RET"でインタラクティブに呼び出すことができます。
+</p>
+
+<p>
+任意のタイミングでデバッガにリターンするために、保証された方法があるのも便利です。これはXを使用しているときは簡単です。GDBで対話中のウィンドウでC-zをタイプすれば、普通のプログラムと同様にEmacsもストップします。(これは実行中のEmacsにアタッチされたGDBでは機能しません。この場合はEmacsを起動したシェルのウィンドウでC-zとタイプするか、以下で説明している"kill
+-TSTP"手法を使用する必要があるでしょう。)
+</p>
+
+<p>
+Emacsがテキスト端末で表示されているときは、事はそれほど簡単ではないので、以下で他のさまざまな方法を説明します(とはいえ、それらはPosixシステムだけでキンするシグナルを使用した場合のみ機能します)。
+</p>
+
+<p>
+Emacsディストリビューション内のsrc/.gdbinitファイルはSIGINT(Emacsのtext-modeのフレームでのC-g)をGDBに制御を戻さずにEmacsに渡されるようアレンジしています。モダンなシステムでは、以下のコマンドでこれをオーバーライドできます:
+</p>
+
+<p>
+handle SIGINT stop nopass
+</p>
+
+<p>
+この'handle'コマンドの後は、SIGINTにより制御がGDBのリターンされるでしょう。Emacsにも同様にC-gでQUITを送りたい場合は、'nopass'を省略してください。シグナルのハンドリングと'handle'コマンドについての詳細は、GDBのマニュアルを参照してください。
+</p>
+
+<p>
+'handle SIGINT'が機能しない場合に使えるテクニックは、何らかの文字コードを変数stop<sub>characterに格納する方法です</sub>。したがって、
+</p>
+
+<p>
+set stop<sub>character</sub> = 29
+</p>
+
+<p>
+これはControl-](10進の29)をストップ文字にします。これでControl-]をタイプすれば、即座にストップします。下位プロセスが開始されるまでsetコマンドは使用できないので、上述の'set'コマンドの機会を得るために、Emacsを'start'コマンドで開始してください。
+</p>
+
+<p>
+Posixホストでは、以下のようにシェルプロンプトから'kill'コマンドを使用してシグナルを送ることもできます。
+</p>
+
+<p>
+kill -TSTP Emacs-PID
+</p>
+
+<p>
+ここでEmacs-PIDはデバッグされているEmacsのプロセスIDです。他に送信するシグナルとして有用なのがSIGUSR1とSIGUSR2です。これらのシグナルの使い方は、ELispマニュアルの"Error
+Debugging"を参照してください。
+</p>
+
+<p>
+Emacsがテキスト端末で表示されているときは、デバッグセッション用に別の端末があると便利です。これは通常どおりEmacsを開始して、gdbから'attach'コマンドでアタッチして行うことができます。このコマンドは、GDBマニュアルの"Attach"ノードで説明されています。
+</p>
+
+<p>
+MS-WindowsではGDB配下でEmacsを実行する前にnew-consoleオプションをセットすることにより、別のコンソールからEmacsを開始できます。
+</p>
+
+<p>
+(gdb) set new-console 1 (gdb) run
+</p>
+
+<p>
+これを行なった場合、GDBと対話しているコンソールウィンドウからC-cやC-BREAKをタイプすると、EmacsがGUIかtext-modeフレームで表示されているかに関わらず、Emacsはストップして制御がGDBにリターンされるでしょう。これは、事前にブレークポイントをセットする以外に、MS-Windowsでデバッガが制御を得るための唯一信頼できる代替方法です。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9461ccc" class="outline-2">
+<h2 id="org9461ccc"><span class="section-number-2">6</span> Examining Lisp object values.</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+デバッグの生きたプロセスがあり、致命的なエラーに遭遇戦していなければ、GDBコマンド'pr'を使用できます。最初は通常の方法、'p'コマンドで値をプリントしてください。それから引数なしで'pr'とタイプします。これはLispプリンターを使用するサブルーチンを呼び出します。
+</p>
+
+<p>
+emacsの値を直接プリントするために、'pp value'を使用することもできます。
+</p>
+
+<p>
+Lisp変数のカレント値を確認するためには、'pv value'を使用します。
+</p>
+
+<p>
+これらのコマンドは出力をstderrに送ります。stderrがcloseされていたり、あなたには不明な何らかのファイルにリダイレクトされている場合、これらの出力を確認することはできないでしょう。これは特にMS-Windows上でデスクトップショートカットからEmacsが呼び出された場合が該当します。GNU/Linuxではコマンド'redirect-debugging-output'を使用して、stderrをファイルにリダイレクトできます。
+</p>
+
+<p>
+注意:
+Emacsが深刻なトラブルの渦中、スタックが破壊(たとえばスタックオーバーフローによるSIGSEGVなど)されていたり、'obarray'のようなデータ構造の循環参照や不正構造があると解っている状況で'pr'、'pp'、'pv'を試みるのは、良いアイデアではありません。このような場合、'pr'により呼び出されるEmacsサブルーチンは、元の問題をデバッグするために重要な何らかのデータを上書きしてしまう等、より多くのダメージを与えてしまうかもしれません。
+</p>
+
+<p>
+さらに'select'の内部にいる間にEmacsをストップした場合は、'pr'の使用が不可能なシステムもいくつかあります。Emacsがwaitしている間にEmacsをストップすると、これは実際に発生します。このような状況では、'pr'の使用を試みてはなりません。かわりにシステムコールをステップアウトするために、's'を使用してください。その後、Emacsは命令文の間に、'pr'を処理することができるようになるでしょう。
+</p>
+
+<p>
+理由が何であれ、'pr'コマンドが使用できない場合は、直前のデータ値のデータ型と値をプリントする'xpr'コマンドを使用できます。
+</p>
+
+<p>
+p it-&gt;object xpr
+</p>
+
+<p>
+低レベルコマンドを使用して、データ値を分析するかもしれません。直前のデータ値のデータ型のプリントには、'xtype'コマンドを使用します。一度データ型が解れば、その型に対応するコマンドを使用できます。以下はそれらのコマンドです:
+</p>
+
+<p>
+    xint xptr xwindow xmarker xoverlay xmiscfree xintfwd xboolfwd xobjfwd
+xbufobjfwd xkbobjfwd xbuflocal xbuffer xsymbol xstring xvector xframe
+xwinconfig xcompiled xcons xcar xcdr xsubr xprocess xfloat xscrollbar
+xchartable xsubchartable xboolvector xhashtable xlist xcoding xcharset
+xfontset xfont xbytecode
+</p>
+
+<p>
+これらの1つ1つは、特定の型やクラス型を受け入れます(これらの型のいくつかは内部的にのみ存在する型なので、Lispでは不可視です)。
+</p>
+
+<p>
+それぞれのx&#x2026;コマンドは、その内容の残りから得られるものを通じて、値についてのいくつかの情報と、GDB値(続けて$により利用可能)をプリントします。
+</p>
+
+<p>
+一般的に内容の残りのほとんどはx&#x2026;コマンドで順に検証していくことができる、追加のLispオブジェクトでしょう。
+</p>
+
+<p>
+生きたプロセスにおいても、これらのx&#x2026;コマンドはバッファー、ウィンドウ、プロセス、マーカー内の検証に役立ちます。以下はフレームと呼ばれる変数に関連する値をプリントするために、GDBマニュアル"Value
+History"ノードで説明されている概念を使用する例です:
+</p>
+
+<p>
+cd src gdb emacs b set<sub>frame</sub><sub>buffer</sub><sub>list</sub> r -q
+</p>
+
+<p>
+その後、Emacsはブレークポイントに達します:
+</p>
+
+<p>
+  (gdb) p frame $1 = 139854428 (gdb) xpr Lisp<sub>Vectorlike</sub> PVEC<sub>FRAME</sub> \(2 =
+(struct frame *) 0x8560258 "emacs@localhost" (gdb) p *\) $3 = { size =
+1073742931, next = 0x85dfe58, name = 140615219, [&#x2026;] }
+</p>
+
+<p>
+これで'pp'を使用してフレームパラメーターをプリントできます:
+</p>
+
+<p>
+  (gdb) pp $-&gt;param<sub>alist</sub> ((background-mode . light) (display-type . color)
+[&#x2026;])
+</p>
+
+<p>
+EmacsのCコードは、lisp.h内で定義されたマクロを多用します。keyboard.cの'add<sub>command</sub><sub>key</sub>'の最後の方にある左辺値式(l-value
+expression)のアドレスが知りたいとします:
+</p>
+
+<p>
+XVECTOR (this<sub>command</sub><sub>keys</sub>)-&gt;contents[this<sub>command</sub><sub>key</sub><sub>count</sub>++] = key;
+</p>
+
+<p>
+XVECTORはマクロなので、Emacsがプリプロセッサーマクロ情報とともにコンパイルされた場合だけそれを知ることができます。オプション'-gdwarf-N'(Nは2以上)と'-g3'を指定した場合、GCCはこの情報を提供します。この場合、GDBは"p
+XVECTOR (this<sub>command</sub><sub>keys</sub>)"のような式を評価できます。
+</p>
+
+<p>
+この情報が利用できない場合は、同じ結果を得るためにGDB内でxvectorコマンドを使用できます。以下は使用方法です:
+</p>
+
+<p>
+  (gdb) p this<sub>command</sub><sub>keys</sub> $1 = 1078005760 (gdb) xvector $2 = (struct
+Lisp<sub>Vector</sub> *) 0x411000 0 (gdb) p $-&gt;contents[this<sub>command</sub><sub>key</sub><sub>count</sub>] \(3 =
+1077872640 (gdb) p &\) $4 = (int *) 0x411008
+</p>
+
+<p>
+以下はマクロとGDBの'define'コマンドに関する例です。'recent<sub>keys</sub>'(最後のキーストローク300個を含む)のようなLispベクターが多数存在します。このLispベクターを以下のようにしてプリントできます
+</p>
+
+<p>
+p recent<sub>keys</sub> pr
+</p>
+
+<p>
+'recent<sub>keys</sub>'は'C-h
+l'に比べて出力が多く、これは不便かもしれません。わたしたちなら、このベクターの最後の10要素だけをプリントしたいと望むでしょう。'recent<sub>keys</sub>'はkeyboard.c内でコマンドにより更新されます
+</p>
+
+<p>
+XVECTOR (recent<sub>keys</sub>)-&gt;contents[recent<sub>keys</sub><sub>index</sub>] = c;
+</p>
+
+<p>
+わたしたちはGDBコマンド'xvector-elts'を定義して、以下のように最後のキーストローク10個をプリントします
+</p>
+
+<p>
+xvector-elts recent<sub>keys</sub> recent<sub>keys</sub><sub>index</sub> 10
+</p>
+
+<p>
+ここでxvector-eltsは以下のように定義します:
+</p>
+
+<p>
+  define xvector-elts set $i = 0 p $arg0 xvector set $foo = $ while $i &lt; $arg2
+p $foo-&gt;contents[$arg1-($i++)] pr end document xvector-elts Prints a range
+of elements of a Lisp vector.  xvector-elts v n i prints 'i' elements of the
+vector 'v' ending at the index 'n'.  end
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad3f23d" class="outline-2">
+<h2 id="orgad3f23d"><span class="section-number-2">7</span> Getting Lisp-level backtrace information within GDB</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+'xbacktrace'コマンドを使用するのがもっとも便利な方法です。これはカレントでアクティブなLisp関数の名前を表示します。
+</p>
+
+<p>
+もしこれが機能しない(たとえば'backtrace<sub>list</sub>'構造が不正等により)場合は、Cレベルのバックトレースを生成するために、GDBプロンプトで"bt"とタイプして、Ffuncallを呼び出しているスタックフレームを探してください。"up
+N"とタイプして、それらのスタックフレームをGDBで1つずつ選択していきます。ここでNは上位フレームに移動するための適切な数字です。そしてFfuncallを呼び出しているフレームごとに以下をタイプします:
+</p>
+
+<p>
+p *args pr
+</p>
+
+<p>
+これにより、そのレベルの関数呼び出しにより呼び出されているLisp関数の名前がプリントされます。
+</p>
+
+<p>
+argsの残りの要素をプリントすることにより、Lisp関数の引数の値を確認できます。以下は最初の引数をプリントする方法です:
+</p>
+
+<p>
+p args[1] pr
+</p>
+
+<p>
+生きたプロセスがない場合は、xtypeと他のx&#x2026;コマンドを使用できます。便利さは劣りますが、このような情報はxsymbolのようなコマンドで取得します。たとえば、
+</p>
+
+<p>
+p *args xtype
+</p>
+
+<p>
+"xtype"が、args[0]をsymbolだと告げた場合は:
+</p>
+
+<p>
+xsymbol
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfe95891" class="outline-2">
+<h2 id="orgfe95891"><span class="section-number-2">8</span> Debugging Emacs redisplay problems</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+&#x2013;enable-checking='glyphs'でEmacsをconfigureした場合は、実行中のEmacsセッションから再表示(redisplay)トレース機能を使用できます。
+</p>
+
+<p>
+コマンド"M-x trace-redisplay
+RET"は再表示が行うことのトレースを標準エラーストリームに生成します。さまざまな状況下でディスプレイエンジンにより選択されるコードパス(code
+path:実際に実行されるコードの道筋)を理解するために、特にある再表示最適化が誤った結果を生成する場合に、非常に役に立ちます(承知のとおり、"M-x
+redraw-display
+RET"、あるいは"M-x"とタイプするだけでも、Emacsが誤った表示を修正するために再表示最適化がよびだされます)。カーソル点滅機能(cursor
+blinking
+feature)は定期的な再表示サイクルをトリガーするので、余計なものをトレースから減らすために、'trace-redisplay'を呼び出す前に'blink-cursor-mode'を無効にすることを推奨します。dump-redisplay-history'コマンドを呼び出して、最後のトレースメッセージを30個まで標準エラーにダンプすることもできます。
+</p>
+
+<p>
+ディスプレイエンジンが選択するコードパスを見つけるには、トレースメッセージからxdisp.cを探します。
+</p>
+
+<p>
+コマンド'dump-glyph-matrix'は、選択されたウィンドウのグリフマトリクス(glyph
+matrix)の完全なダンプを標準エラーストリームに生成するのに役立ちます。詳細は関数のドキュメント文字列を参照してください。text-modeフレームで再表示に関する問題をデバッグしている場合は、コマンド'dump-frame-glyph-matrix'が便利なことに気づくかもしれません。
+</p>
+
+<p>
+再表示をデバッグするとき有用な他のコマンドには、'dump-glyph-row'と'dump-tool-bar-row'があります。
+</p>
+
+<p>
+GDB配下でEmacsを実行している場合は、マトリクスを引数にその関数を呼び出すだけで、任意のグリフマトリクスの内容をプリントできます。たとえば、以下のコマンドは、ウィンドウ(ポインター'w')のカレントマトリクスの内容をプリントします:
+</p>
+
+<p>
+(gdb) p dump<sub>glyph</sub><sub>matrix</sub> (w-&gt;current<sub>matrix</sub>, 2)
+</p>
+
+<p>
+(2つ目の引数2はdump<sub>glyph</sub><sub>matrixにグリフを長い形式プリントするよう指定します</sub>。)
+</p>
+
+<p>
+ディスプレイ関係のEmacsのコードには特別なデバッグ用コードが含まれていますが、通常は無効になっています。&#x2013;enable-checking='yes,glyphs'でEmacsをconfigureすることにより、これが有効になります。
+</p>
+
+<p>
+このようにEmacsをビルドすると、ディスプレイコード処理を検査する多くのassertionが、通常Emacsが行うより多く活性化されます(これらのassertionが何をテストしているかは、'eassert'マクロ呼び出しを確認してください)。失敗を報告するassertionは精査するべきです。
+</p>
+
+<p>
+X配下で実行中のEmacsにたいしてディスプレイの問題をデバッグするときは、'ff'コマンドを使用して、待機中のすべての画面表示の更新をflushできます。
+</p>
+
+<p>
+src/.gdbinitファイルでは、再表示関連のデータ構造を簡潔でユーザーフレンドリーなフォーマットでダンプするためのコマンドが多数定義されています:
+</p>
+
+<p>
+ 'ppt' prints value of PT, narrowing, and gap in current buffer.  'pit' dumps
+the current display iterator 'it'.  'pwin' dumps the current window 'win'.
+'prow' dumps the current glyph<sub>row</sub> 'row'.  'pg' dumps the current glyph
+'glyph'.  'pgi' dumps the next glyph.  'pgrow' dumps all glyphs in current
+glyph<sub>row</sub> 'row'.  'pcursor' dumps current output<sub>cursor</sub>.
+</p>
+
+<p>
+上記のコマンドには関連する型のオブジェクトを引数とする、サフィックス'x'のついたバージョンも存在します。たとえば、'pgrowx'は引数内のすべてのグリフをダンプします。引数の型は'struct
+glyph<sub>row</sub>'でなければなりません。
+</p>
+
+<p>
+再表示はEmacsにより非常に頻繁に行われるので、デバッグ中の問題が(まだ)発生していないのに、再表示のたびに毎回ブレークしてしまうのを避けるため、ブレークポイントを巧妙に配す必要があります。これに関する有用なテクニックを以下に挙げます:
+</p>
+
+<p>
+ . Put a breakpoint at 'Fredraw<sub>display</sub>' before running Emacs.  Then do
+whatever is required to reproduce the bad display, and invoke "M-x
+redraw-display".  The debugger will kick in, and you can set or enable
+breakpoints in strategic places, knowing that the bad display will be
+redrawn from scratch.
+</p>
+
+<p>
+ . For debugging incorrect cursor position, a good place to put a breakpoint
+is in 'set<sub>cursor</sub><sub>from</sub><sub>row</sub>'.  The first time this function is called as part
+of 'redraw-display', Emacs is redrawing the minibuffer window, which is
+usually not what you want; type "continue" to get to the call you want.  In
+general, always make sure 'set<sub>cursor</sub><sub>from</sub><sub>row</sub>' is called for the right
+window and buffer by examining the value of w-&gt;contents: it should be the
+buffer whose display you are debugging.
+</p>
+
+<p>
+ . 'set<sub>cursor</sub><sub>from</sub><sub>row</sub>' is also a good place to look at the contents of a
+screen line (a.k.a. "glyph row"), by means of the 'pgrow' GDB command.  Of
+course, you need first to make sure the cursor is on the screen line which
+you want to investigate.  If you have set a breakpoint in 'Fredraw<sub>display</sub>',
+as advised above, move cursor to that line before invoking 'redraw-display'.
+</p>
+
+<p>
+ . If the problem happens only at some specific buffer position or for some
+specific rarely-used character, you can make your breakpoints conditional on
+those values.  The display engine maintains the buffer and string position
+it is processing in the it-&gt;current member; for example, the buffer
+character position is in it-&gt;current.pos.charpos.  Most redisplay functions
+accept a pointer to a 'struct it' object as their argument, so you can make
+conditional breakpoints in those functions, like this:
+</p>
+
+<p>
+(gdb) break x<sub>produce</sub><sub>glyphs</sub> if it-&gt;current.pos.charpos == 1234
+</p>
+
+<p>
+   For conditioning on the character being displayed, use it-&gt;c or
+it-&gt;char<sub>to</sub><sub>display</sub>.
+</p>
+
+<p>
+ . You can also make the breakpoints conditional on what object is being used
+for producing glyphs for display.  The it-&gt;method member has the value
+GET<sub>FROM</sub><sub>BUFFER</sub> for displaying buffer contents, GET<sub>FROM</sub><sub>STRING</sub> for
+displaying a Lisp string (e.g., a 'display' property or an overlay string),
+GET<sub>FROM</sub><sub>IMAGE</sub> for displaying an image, etc.  See 'enum it<sub>method</sub>' in
+dispextern.h for the full list of values.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc2c562e" class="outline-2">
+<h2 id="orgc2c562e"><span class="section-number-2">9</span> Following longjmp call.</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+最新バージョンのglibc(2.4+?)は、GDBの'next'使用によるlongjmp呼び出しの追跡を防ぐため、setjmp/longjmpにたいする値を暗号化して格納します。この保護を無効にするためには、環境変数LD<sub>POINTER</sub><sub>GUARDに0をセットする必要があります</sub>。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org82b413b" class="outline-2">
+<h2 id="org82b413b"><span class="section-number-2">10</span> Using GDB in Emacs</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Debugging with GDB in Emacs offers some advantages over the command line
+(See the GDB Graphical Interface node of the Emacs manual).  There are also
+some features available just for debugging Emacs:
+</p>
+
+<ol class="org-ol">
+<li>The command gud-print is available on the tool bar (the 'p' icon) and</li>
+</ol>
+<p>
+allows the user to print the s-expression of the variable at point, in the
+GUD buffer.
+</p>
+
+<ol class="org-ol">
+<li>Pressing 'p' on a component of a watch expression that is a lisp object</li>
+</ol>
+<p>
+in the speedbar prints its s-expression in the GUD buffer.
+</p>
+
+<ol class="org-ol">
+<li>The STOP button on the tool bar and the Signals-&gt;STOP menu-bar menu item</li>
+</ol>
+<p>
+are adjusted so that they send SIGTSTP instead of the usual SIGINT.
+</p>
+
+<ol class="org-ol">
+<li>The command gud-pv has the global binding 'C-x C-a C-v' and prints the</li>
+</ol>
+<p>
+value of the lisp variable at point.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3199db9" class="outline-2">
+<h2 id="org3199db9"><span class="section-number-2">11</span> Debugging what happens while preloading and dumping Emacs</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Debugging 'temacs' is useful when you want to establish whether a problem
+happens in an undumped Emacs.  To run 'temacs' under a debugger, type "gdb
+temacs", then start it with 'r -batch -l loadup'.
+</p>
+
+<p>
+If you need to debug what happens during dumping, start it with 'r -batch -l
+loadup dump' instead.  For debugging the bootstrap dumping, use "loadup
+bootstrap" instead of "loadup dump".
+</p>
+
+<p>
+If temacs actually succeeds when running under GDB in this way, do not try
+to run the dumped Emacs, because it was dumped with the GDB breakpoints in
+it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfe88298" class="outline-2">
+<h2 id="orgfe88298"><span class="section-number-2">12</span> If you encounter X protocol errors</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+The X server normally reports protocol errors asynchronously, so you find
+out about them long after the primitive which caused the error has returned.
+</p>
+
+<p>
+To get clear information about the cause of an error, try evaluating
+(x-synchronize t).  That puts Emacs into synchronous mode, where each Xlib
+call checks for errors before it returns.  This mode is much slower, but
+when you get an error, you will see exactly which call really caused the
+error.
+</p>
+
+<p>
+You can start Emacs in a synchronous mode by invoking it with the -xrm
+option, like this:
+</p>
+
+<p>
+emacs -xrm "emacs.synchronous: true"
+</p>
+
+<p>
+Setting a breakpoint in the function 'x<sub>error</sub><sub>quitter</sub>' and looking at the
+backtrace when Emacs stops inside that function will show what code causes
+the X protocol errors.
+</p>
+
+<p>
+Some bugs related to the X protocol disappear when Emacs runs in a
+synchronous mode.  To track down those bugs, we suggest the following
+procedure:
+</p>
+
+<ul class="org-ul">
+<li>Run Emacs under a debugger and put a breakpoint inside the primitive</li>
+</ul>
+<p>
+function which, when called from Lisp, triggers the X protocol errors.  For
+example, if the errors happen when you delete a frame, put a breakpoint
+inside 'Fdelete<sub>frame</sub>'.
+</p>
+
+<ul class="org-ul">
+<li>When the breakpoint breaks, step through the code, looking for calls to X</li>
+</ul>
+<p>
+functions (the ones whose names begin with "X" or "Xt" or "Xm").
+</p>
+
+<ul class="org-ul">
+<li>Insert calls to 'XSync' before and after each call to the X functions,</li>
+</ul>
+<p>
+like this:
+</p>
+
+<p>
+XSync (f-&gt;output<sub>data.x</sub>-&gt;display<sub>info</sub>-&gt;display, 0);
+</p>
+
+<p>
+    where 'f' is the pointer to the 'struct frame' of the selected frame,
+normally available via XFRAME (selected<sub>frame</sub>).  (Most functions which call
+X already have some variable that holds the pointer to the frame, perhaps
+called 'f' or 'sf', so you shouldn't need to compute it.)
+</p>
+
+<p>
+    If your debugger can call functions in the program being debugged, you
+should be able to issue the calls to 'XSync' without recompiling Emacs.  For
+example, with GDB, just type:
+</p>
+
+<p>
+call XSync (f-&gt;output<sub>data.x</sub>-&gt;display<sub>info</sub>-&gt;display, 0)
+</p>
+
+<p>
+    before and immediately after the suspect X calls.  If your debugger does not
+support this, you will need to add these pairs of calls in the source and
+rebuild Emacs.
+</p>
+
+<p>
+    Either way, systematically step through the code and issue these calls until
+you find the first X function called by Emacs after which a call to 'XSync'
+winds up in the function 'x<sub>error</sub><sub>quitter</sub>'.  The first X function call for
+which this happens is the one that generated the X protocol error.
+</p>
+
+<ul class="org-ul">
+<li>You should now look around this offending X call and try to figure out</li>
+</ul>
+<p>
+what is wrong with it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga12fbae" class="outline-2">
+<h2 id="orga12fbae"><span class="section-number-2">13</span> If Emacs causes errors or memory leaks in your X server</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+You can trace the traffic between Emacs and your X server with a tool like
+xmon, available at <a href="ftp://ftp.x.org/contrib/devel_tools/">ftp://ftp.x.org/contrib/devel_tools/</a>.
+</p>
+
+<p>
+Xmon can be used to see exactly what Emacs sends when X protocol errors
+happen.  If Emacs causes the X server memory usage to increase you can use
+xmon to see what items Emacs creates in the server (windows, graphical
+contexts, pixmaps) and what items Emacs delete.  If there are consistently
+more creations than deletions, the type of item and the activity you do when
+the items get created can give a hint where to start debugging.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6146e66" class="outline-2">
+<h2 id="org6146e66"><span class="section-number-2">14</span> If the symptom of the bug is that Emacs fails to respond</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+Don't assume Emacs is 'hung'&#x2013;it may instead be in an infinite loop.  To
+find out which, make the problem happen under GDB and stop Emacs once it is
+not responding.  (If Emacs is using X Windows directly, you can stop Emacs
+by typing C-z at the GDB job.  On MS-Windows, run Emacs as usual, and then
+attach GDB to it &#x2013; that will usually interrupt whatever Emacs is doing and
+let you perform the steps described below.)
+</p>
+
+<p>
+Then try stepping with 'step'.  If Emacs is hung, the 'step' command won't
+return.  If it is looping, 'step' will return.
+</p>
+
+<p>
+If this shows Emacs is hung in a system call, stop it again and examine the
+arguments of the call.  If you report the bug, it is very important to state
+exactly where in the source the system call is, and what the arguments are.
+</p>
+
+<p>
+If Emacs is in an infinite loop, try to determine where the loop starts and
+ends.  The easiest way to do this is to use the GDB command 'finish'.  Each
+time you use it, Emacs resumes execution until it exits one stack frame.
+Keep typing 'finish' until it doesn't return&#x2013;that means the infinite loop
+is in the stack frame which you just tried to finish.
+</p>
+
+<p>
+Stop Emacs again, and use 'finish' repeatedly again until you get back to
+that frame.  Then use 'next' to step through that frame.  By stepping, you
+will see where the loop starts and ends.  Also, examine the data being used
+in the loop and try to determine why the loop does not exit when it should.
+</p>
+
+<p>
+On GNU and Unix systems, you can also trying sending Emacs SIGUSR2, which,
+if 'debug-on-event' has its default value, will cause Emacs to attempt to
+break it out of its current loop and into the Lisp debugger.  (See the node
+"Debugging" in the ELisp manual for the details about the Lisp debugger.)
+This feature is useful when a C-level debugger is not conveniently
+available.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1169b54" class="outline-2">
+<h2 id="org1169b54"><span class="section-number-2">15</span> If certain operations in Emacs are slower than they used to be, here is</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+some advice for how to find out why.
+</p>
+
+<p>
+Stop Emacs repeatedly during the slow operation, and make a backtrace each
+time.  Compare the backtraces looking for a pattern&#x2013;a specific function
+that shows up more often than you'd expect.
+</p>
+
+<p>
+If you don't see a pattern in the C backtraces, get some Lisp backtrace
+information by typing "xbacktrace" or by looking at Ffuncall frames (see
+above), and again look for a pattern.
+</p>
+
+<p>
+When using X, you can stop Emacs at any time by typing C-z at GDB.  When not
+using X, you can do this with C-g.  On non-Unix platforms, such as MS-DOS,
+you might need to press C-BREAK instead.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfea42b5" class="outline-2">
+<h2 id="orgfea42b5"><span class="section-number-2">16</span> If GDB does not run and your debuggers can't load Emacs.</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+On some systems, no debugger can load Emacs with a symbol table, perhaps
+because they all have fixed limits on the number of symbols and Emacs
+exceeds the limits.  Here is a method that can be used in such an
+extremity.  Do
+</p>
+
+<p>
+    nm -n temacs &gt; nmout strip temacs adb temacs 0xd:i 0xe:i 14:i 17:i :r -l
+loadup (or whatever)
+</p>
+
+<p>
+It is necessary to refer to the file 'nmout' to convert numeric addresses
+into symbols and vice versa.
+</p>
+
+<p>
+It is useful to be running under a window system.  Then, if Emacs becomes
+hopelessly wedged, you can create another window to do kill -9 in.  kill
+-ILL is often useful too, since that may make Emacs dump core or return to
+adb.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd26a9df" class="outline-2">
+<h2 id="orgd26a9df"><span class="section-number-2">17</span> Debugging incorrect screen updating on a text terminal.</h2>
+<div class="outline-text-2" id="text-17">
+<p>
+To debug Emacs problems that update the screen wrong, it is useful to have a
+record of what input you typed and what Emacs sent to the screen.  To make
+these records, do
+</p>
+
+<p>
+(open-dribble-file "~/.dribble")  (open-termscript "~/.termscript")
+</p>
+
+<p>
+The dribble file contains all characters read by Emacs from the terminal,
+and the termscript file contains all characters it sent to the terminal.
+The use of the directory '~/' prevents interference with any other user.
+</p>
+
+<p>
+If you have irreproducible display problems, put those two expressions in
+your ~/.emacs file.  When the problem happens, exit the Emacs that you were
+running, kill it, and rename the two files.  Then you can start another
+Emacs without clobbering those files, and use it to examine them.
+</p>
+
+<p>
+An easy way to see if too much text is being redrawn on a terminal is to
+evaluate '(setq inverse-video t)' before you try the operation you think
+will cause too much redrawing.  This doesn't refresh the screen, so only
+newly drawn text is in inverse video.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3bfa84b" class="outline-2">
+<h2 id="org3bfa84b"><span class="section-number-2">18</span> Debugging LessTif</h2>
+<div class="outline-text-2" id="text-18">
+<p>
+If you encounter bugs whereby Emacs built with LessTif grabs all mouse and
+keyboard events, or LessTif menus behave weirdly, it might be helpful to set
+the 'DEBUGSOURCES' and 'DEBUG<sub>FILE</sub>' environment variables, so that one can
+see what LessTif was doing at this point.  For instance
+</p>
+
+<p>
+  export DEBUGSOURCES="RowColumn.c:MenuShell.c:MenuUtil.c" export
+DEBUG<sub>FILE</sub>=/usr/tmp/LESSTIF<sub>TRACE</sub> emacs &amp;
+</p>
+
+<p>
+causes LessTif to print traces from the three named source files to a file
+in '/usr/tmp' (that file can get pretty large).  The above should be typed
+at the shell prompt before invoking Emacs, as shown by the last line above.
+</p>
+
+<p>
+Running GDB from another terminal could also help with such problems.  You
+can arrange for GDB to run on one machine, with the Emacs display appearing
+on another.  Then, when the bug happens, you can go back to the machine
+where you started GDB and use the debugger from there.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad71bab" class="outline-2">
+<h2 id="orgad71bab"><span class="section-number-2">19</span> Debugging problems which happen in GC</h2>
+<div class="outline-text-2" id="text-19">
+<p>
+The array 'last<sub>marked</sub>' (defined on alloc.c) can be used to display up to
+500 last objects marked by the garbage collection process.  Whenever the
+garbage collector marks a Lisp object, it records the pointer to that object
+in the 'last<sub>marked</sub>' array, which is maintained as a circular buffer.  The
+variable 'last<sub>marked</sub><sub>index</sub>' holds the index into the 'last<sub>marked</sub>' array
+one place beyond where the pointer to the very last marked object is stored.
+</p>
+
+<p>
+The single most important goal in debugging GC problems is to find the Lisp
+data structure that got corrupted.  This is not easy since GC changes the
+tag bits and relocates strings which make it hard to look at Lisp objects
+with commands such as 'pr'.  It is sometimes necessary to convert
+Lisp<sub>Object</sub> variables into pointers to C struct's manually.
+</p>
+
+<p>
+Use the 'last<sub>marked</sub>' array and the source to reconstruct the sequence that
+objects were marked.  In general, you need to correlate the values recorded
+in the 'last<sub>marked</sub>' array with the corresponding stack frames in the
+backtrace, beginning with the innermost frame.  Some subroutines of
+'mark<sub>object</sub>' are invoked recursively, others loop over portions of the data
+structure and mark them as they go.  By looking at the code of those
+routines and comparing the frames in the backtrace with the values in
+'last<sub>marked</sub>', you will be able to find connections between the values in
+'last<sub>marked</sub>'.  E.g., when GC finds a cons cell, it recursively marks its
+car and its cdr.  Similar things happen with properties of symbols, elements
+of vectors, etc.  Use these connections to reconstruct the data structure
+that was being marked, paying special attention to the strings and names of
+symbols that you encounter: these strings and symbol names can be used to
+grep the sources to find out what high-level symbols and global variables
+are involved in the crash.
+</p>
+
+<p>
+Once you discover the corrupted Lisp object or data structure, grep the
+sources for its uses and try to figure out what could cause the corruption.
+If looking at the sources doesn't help, you could try setting a watchpoint
+on the corrupted data, and see what code modifies it in some invalid way.
+(Obviously, this technique is only useful for data that is modified only
+very rarely.)
+</p>
+
+<p>
+It is also useful to look at the corrupted object or data structure in a
+fresh Emacs session and compare its contents with a session that you are
+debugging.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org69051be" class="outline-2">
+<h2 id="org69051be"><span class="section-number-2">20</span> Debugging problems with non-ASCII characters</h2>
+<div class="outline-text-2" id="text-20">
+<p>
+If you experience problems which seem to be related to non-ASCII characters,
+such as \201 characters appearing in the buffer or in your files, set the
+variable byte-debug-flag to t.  This causes Emacs to do some extra checks,
+such as look for broken relations between byte and character positions in
+buffers and strings; the resulting diagnostics might pinpoint the cause of
+the problem.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org48ec23b" class="outline-2">
+<h2 id="org48ec23b"><span class="section-number-2">21</span> Debugging the TTY (non-windowed) version</h2>
+<div class="outline-text-2" id="text-21">
+<p>
+The most convenient method of debugging the character-terminal display is to
+do that on a window system such as X.  Begin by starting an xterm window,
+then type these commands inside that window:
+</p>
+
+<p>
+$ tty $ echo $TERM
+</p>
+
+<p>
+Let's say these commands print "/dev/ttyp4" and "xterm", respectively.
+</p>
+
+<p>
+Now start Emacs (the normal, windowed-display session, i.e. without the
+'-nw' option), and invoke "M-x gdb RET emacs RET" from there.  Now type
+these commands at GDB's prompt:
+</p>
+
+<p>
+(gdb) set args -nw -t /dev/ttyp4 (gdb) set environment TERM xterm (gdb) run
+</p>
+
+<p>
+The debugged Emacs should now start in no-window mode with its display
+directed to the xterm window you opened above.
+</p>
+
+<p>
+Similar arrangement is possible on a character terminal by using the
+'screen' package.
+</p>
+
+<p>
+On MS-Windows, you can start Emacs in its own separate console by setting
+the new-console option before running Emacs under GDB:
+</p>
+
+<p>
+(gdb) set new-console 1 (gdb) run
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga456613" class="outline-2">
+<h2 id="orga456613"><span class="section-number-2">22</span> Running Emacs built with malloc debugging packages</h2>
+<div class="outline-text-2" id="text-22">
+<p>
+If Emacs exhibits bugs that seem to be related to use of memory allocated
+off the heap, it might be useful to link Emacs with a special debugging
+library, such as Electric Fence (a.k.a. efence) or GNU Checker, which helps
+find such problems.
+</p>
+
+<p>
+Emacs compiled with such packages might not run without some hacking,
+because Emacs replaces the system's memory allocation functions with its own
+versions, and because the dumping process might be incompatible with the way
+these packages use to track allocated memory.  Here are some of the changes
+you might find necessary:
+</p>
+
+<ul class="org-ul">
+<li>Edit configure, to set system<sub>malloc</sub> and CANNOT<sub>DUMP</sub> to "yes".</li>
+
+<li>Configure with a different &#x2013;prefix= option.  If you use GCC, version</li>
+</ul>
+<p>
+2.7.2 is preferred, as some malloc debugging packages work a lot better with
+it than with 2.95 or later versions.
+</p>
+
+<ul class="org-ul">
+<li>Type "make" then "make -k install".</li>
+
+<li>If required, invoke the package-specific command to prepare src/temacs for</li>
+</ul>
+<p>
+execution.
+</p>
+
+<ul class="org-ul">
+<li>cd ..; src/temacs</li>
+</ul>
+
+<p>
+(Note that this runs 'temacs' instead of the usual 'emacs' executable.  This
+avoids problems with dumping Emacs mentioned above.)
+</p>
+
+<p>
+Some malloc debugging libraries might print lots of false alarms for
+bitfields used by Emacs in some data structures.  If you want to get rid of
+the false alarms, you will have to hack the definitions of these data
+structures on the respective headers to remove the ':N' bitfield definitions
+(which will cause each such field to use a full int).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org989974b" class="outline-2">
+<h2 id="org989974b"><span class="section-number-2">23</span> How to recover buffer contents from an Emacs core dump file</h2>
+<div class="outline-text-2" id="text-23">
+<p>
+The file etc/emacs-buffer.gdb defines a set of GDB commands for recovering
+the contents of Emacs buffers from a core dump file.  You might also find
+those commands useful for displaying the list of buffers in human-readable
+format from within the debugger.
+</p>
+
+<p>
+
+This file is part of GNU Emacs.
+</p>
+
+<p>
+GNU Emacs is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+</p>
+
+<p>
+GNU Emacs is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+details.
+</p>
+
+<p>
+You should have received a copy of the GNU General Public License along with
+GNU Emacs.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
+</p>
+
+<p>
+
+Local variables:
+mode: org
+paragraph-separate: "[ 	\f]*$"
+end:
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: unknown</p>
+<p class="date">Created: 2018-02-23 Fri 21:16</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
